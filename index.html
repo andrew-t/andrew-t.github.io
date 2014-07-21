@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>andrewt.net</title>
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+		<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		<link href='http://fonts.googleapis.com/css?family=Poly:400,400italic|Neuton:700|Press+Start+2P' rel='stylesheet' type='text/css' />
+		<link rel="openid2.provider" href="https://www.google.com/accounts/o8/ud" >
+		<link rel="openid2.local_id" href="https://plus.google.com/u/0/116371015092924316135/" >
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.andrewt.net/rss" />
+		<script src="script.js"></script>
+	</head>
+	<body onload="bind()">
+
+		<h1><a href="http://www.andrewt.net">andrewt.net</a></h1>
+
+		<section id="contact">
+			<h1>About me</h1>
+			<ul>
+				<li><a rel="me" href="mailto:andrew@andrewt.net" class="email">andrew@andrewt.net</a></li>
+				<li><a rel="me" href="http://twitter.com/Andrew_Taylor" class="twitter">@Andrew_Taylor</a></li>
+				<li><a rel="me" href="http://www.andrewt.net/rss" class="rss">RSS</a></li>
+			</ul>
+		</section>
+
+		<section id="toys" class="boxes">
+			<h1>HTML Toys</h1>
+
+			<div>
+				<a href="/wall" class="feature"><img src="thumbnails/wall.png" /></a>
+				<a href="https://github.com/andrew-t/wall" class="ribbon github"></a>
+				<p><a href="/wall" class="feature">The Connecting Wall</a> is a game from BBC4&rsquo;s <a href="http://www.bbc.co.uk/programmes/b00lskhg/features/quiz"><em>Only Connect</em></a> game show. Their version requires Flash; mine is entirely CSS and JavaScript, so it should run on your telephone.</p>
+			</div>
+
+			<div>
+				<a href="/gravity" class="feature"><img src="thumbnails/gravity.png" /></a>
+				<a href="https://github.com/andrew-t/gravity" class="ribbon github"></a>
+				<p><a href="/gravity" class="feature">Gravity</a> is a game not unlike Worms or Angry Birds. Two players take turns hurling missiles at each other. The twist is that the missiles must travel through (or round) a solar system, where each planet exerts its own gravitational pull.</p>
+			</div>
+
+			<div>
+				<a href="/3doku" class="feature"><img src="thumbnails/3doku.png" /></a>
+				<a href="https://play.google.com/store/apps/details?id=net.andrewt.sudokube" class="ribbon android"></a>
+				<a href="https://github.com/andrew-t/3doku" class="ribbon github"></a>
+				<p><a href="/3doku" class="feature">3Doku</a> is a 3D version of sudoku. (Well, OK, it is a 2D version of sudoku wrapped around a 4&times;4&times;4 cube.) <!--[if IE]><b>It does not work on Internet Explorer.</b><![endif]--> <a href="https://play.google.com/store/apps/details?id=net.andrewt.sudokube">Also available on Android</a>.</p>
+			</div>
+
+			<div>
+				<a href="/4tris" class="feature"><img src="thumbnails/4tris.png" /></a>
+				<p><a href="/4tris" class="feature">4tris</a> is a version of Connect 4 with added havoc caused by lines vanishing and forming combos.</p>
+			</div>
+
+			<div>
+				<a href="/snake" class="feature"><img src="thumbnails/snake.png" /></a>
+				<p><a href="/snake" class="feature">Analogue Snake</a> is the classic phone game Snake with all the right angles taken out.</p>
+			</div>
+
+			<div>
+				<a href="/mandelbrot" class="feature"><img src="thumbnails/mandelbrot.png" /></a>
+				<a href="https://github.com/andrew-t/mandelbrot" class="ribbon github"></a>
+				<p>Explore <a href="/mandelbrot" class="feature">the Mandelbrot Set</a> with the HTML5 canvas element.</p>
+			</div>
+
+			<div>
+				<a href="/snowflake" class="feature"><img src="thumbnails/snowflake.png" /></a>
+				<a href="https://github.com/andrew-t/snowflake" class="ribbon github"></a>
+				<p>Explore <a href="/snowflake" class="feature">Koch snowflake curves</a> with the HTML5 canvas element.</p>
+			</div>
+
+			<div>
+				<a href="/charm" class="feature"><img src="thumbnails/charm.png" /></a>
+				<a href="https://github.com/andrew-t/charm" class="ribbon github"></a>
+				<a href="https://play.google.com/store/apps/details?id=net.andrewt.charm" class="ribbon android"></a>
+				<p><a href="/charm" class="feature">Charm</a> lets you quickly find that Unicode symbol you were looking for, by typing a portion of its name. <a href="https://play.google.com/store/apps/details?id=net.andrewt.charm">Charm is also available as an Android app</a>.</p>
+			</div>
+
+			<div>
+				<a href="http://think-maths.co.uk/spreadsheet" class="feature"><img src="thumbnails/mosaic.png" /></a>
+				<p><a href="http://think-maths.co.uk/spreadsheet">Think Maths</a>&rsquo; <a href="http://think-maths.co.uk/spreadsheet" class="feature">Pixel Spreadsheet</a> is a tool I helped create which turns a picture into an Excel spreadsheet, using conditional formatting so that when you zoom out you see the picture.</p>
+			</div>
+
+			<div>
+				<a href="https://play.google.com/store/apps/developer?id=Andrew+Taylor" class="feature"><img src="thumbnails/apps.png" /></a>
+				<p>Check out <a href="https://play.google.com/store/apps/developer?id=Andrew+Taylor" class="feature">my Android apps on the Google Play Store</a>.</p>
+			</div>
+
+			<div>
+				<a href="https://www.youtube.com/watch?v=OpLU__bhu2w" class="feature"><img src="thumbnails/domputer.jpg" /></a>
+				<p>In October 2012, I helped <a href="http://standupmaths.com/">Matt Parker</a> build <a href="https://www.youtube.com/watch?v=OpLU__bhu2w" class="feature">a computer entirely from dominoes</a>. There's an explanatory video and worksheets at <a href="http://www.think-maths.co.uk/downloads/domino-computer-worksheets">ThinkMaths.</a>.</p>
+			</div>
+
+			<div>
+				<a href="https://twitter.com/823years" class="feature"><img src="thumbnails/823years.png" /></a>
+				<a href="https://github.com/andrew-t/oeiscal" class="ribbon github"></a>
+				<p><a href="https://twitter.com/823years" class="feature">@823years</a> is a Twitterbot response to the various banal or <a href="http://www.andrewt.net/blog/posts/an-interesting-fact-august-2010-is-entirely-unremarkable/">insane</a> &lsquo;interesting facts about today&rsquo;s date&rsquo; memes that spread periodically.</p>
+			</div>
+		</section>
+
+		<section id="footer">
+			<img id="leeds" src="images/leedslogo2.png" alt="University of Leeds" />
+			<img id="uom" src="images/uomlogo/TAB_col_white_background.png" alt="University of Manchester" />
+			<img id="ms" src="images/mslogo/MCP_2013(rgb).png" alt="Microsoft Certified Professional" />
+			<div>
+				<p id="leeds-p">I hold a Masters&rsquo; degree in Physics from the University of Leeds, who &ldquo;do not allow the University logo to be downloaded&nbsp;&hellip; to prevent it being misused, and help protect against potential fraudulent use by third parties,&rdquo; <!-- http://comms.leeds.ac.uk/downloads/ --> which is why I have drawn it myself.</p>
+				<p id="uom-p">I graduated as a Doctor of Philosophy from the University of Manchester, studying 2D and 3D image analysis in the field of research dentistry.</p>
+				<p id="ms-p">I am Microsoft Certified in HTML5, JavaScript and CSS3.</p>
+			</div>
+		</section>
+
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-1802479-1']);
+		  _gaq.push(['_trackPageview']);
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+	</body>
+</html>
