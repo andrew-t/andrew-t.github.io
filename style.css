@@ -331,6 +331,15 @@ a.feature:hover {
 	height: 37px;
 	background: url('images/android/32.png');
 }
+.ribbon.mashable:after {
+	top: -7px;
+	height: 37px;
+	content: 'M';
+	color: white;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 32px;
+}
 
 /* colours */
 .ribbon.github {
@@ -338,6 +347,9 @@ a.feature:hover {
 }
 .ribbon.android {
 	border-color: #080;
+}
+.ribbon.mashable {
+	border-color: #00aeef;
 }
 
 /* EASTER EGG! */
