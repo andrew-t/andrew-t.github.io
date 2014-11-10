@@ -14,12 +14,19 @@ body > h1 {
 	padding: 0 0 0 50px;
 	font-size: 90px;
 	text-align: left;
-	background: #ccc;
+	background: url('images/textured_paper.png') #ccc;
 }
 body > h1 a {
 	/* TODO - get headline image */
 	color: white;
 	text-decoration: none;
+	text-shadow: 0 5px 10px black;
+}
+
+#contact {
+	box-shadow: 0 5px 10px black;
+	position: relative;
+	z-index: 1;
 }
 
 section {
@@ -98,9 +105,6 @@ a.email:before {
 	line-height: 37px;
 	top: 2px;
 	color: white;
-}
-ul a:hover{
-
 }
 
 
@@ -193,7 +197,9 @@ ul a:hover{
 .boxes {
 	display: inline-block;
 	text-align: center;
-	background: #ccc;
+	background: url('images/textured_paper.png') #ccc;
+	/* fake footer shadow: */
+	box-shadow: inset 0 -15px 10px -20px black;
 }
 .boxes > h1 {
 	display: none;
@@ -207,9 +213,11 @@ ul a:hover{
 	border: 11px solid #fff;
 	width: 350px; height: 250px;
 	overflow: hidden;
-	margin: 0; padding: 0;
+	margin: 15px;
+	padding: 0;
 	position: relative;
 	display: inline-block;
+	box-shadow: 0 5px 10px black;
 }
 .boxes > div:hover {
 	border-color: #eef;
