@@ -2,6 +2,7 @@ function bind() {
 	var ids = ['leeds', 'uom', 'ms'];
 	var imgs = [];
 	var ps = [];
+	var otherwise = document.getElementById('otherwise');
 	for (var i = ids.length - 1; i >= 0; i--) {
 		imgs[i] = document.getElementById(ids[i]);
 		ps[i] = document.getElementById(ids[i] + '-p');
@@ -12,12 +13,14 @@ function bind() {
 				imgs[j].className = classname;
 				ps[j].className = classname;
 			};
+			otherwise.className = 'other';
 		});
 		imgs[i].addEventListener('mouseout', function() {
 			for (var j = ids.length - 1; j >= 0; j--) {
 				imgs[j].className = 'none';
 				ps[j].className = 'none';
 			};
+			otherwise.className = 'none';
 		});
 	}
 

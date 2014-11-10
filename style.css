@@ -165,7 +165,8 @@ a.email:before {
 	-webkit-transition: all 0.6s;
 }
 #footer .over,
-#footer img.none {
+#footer img.none,
+#footer p#otherwise.none {
 	opacity: 1;
 }
 #footer img.other {
