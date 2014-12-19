@@ -62,3 +62,12 @@ function bind() {
 		}
 	});
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+	var header = document.getElementsByTagName('h1')[0],
+		body = document.getElementById('toys');
+	document.addEventListener('scroll', function() {
+		header.style.backgroundPosition =
+		body.style.backgroundPosition = '0 ' + (document.body.scrollTop / 2) + 'px';
+	});
+});
