@@ -16,6 +16,13 @@
 	-webkit-transform: $params;
 }
 
+$banner-height: 20px;
+$banner-font-size: 15px;
+$banner-width: 150px;
+$banner-margin: 100px;
+$banner-inset: 50px;
+$banner-offset: -20px;
+
 body {
 	background: white;
 	margin: 0;
@@ -228,6 +235,39 @@ section {
 					font-size: 32px;
 				}
 			}
+			&::before {
+				position: absolute;
+				top: $banner-inset + $banner-offset - $banner-height / 2;
+				left: $banner-inset - $banner-margin - $banner-width / 2;
+				display: block;
+				color: white;
+				height: $banner-height;
+				width: $banner-width;
+				text-align: center;
+				@include transform(rotate(-45deg));
+				z-index: 100;
+				padding: 0 $banner-margin;
+				font-family: sans-serif;
+				font-size: $banner-font-size;
+				line-height: $banner-height;
+				@include transition(all 0.5s);
+				opacity: 0;
+				cursor: pointer;
+				pointer-events: none;
+			}
+			&.webkit::before {
+				background: #03d;
+				content: 'Best in Webkit';
+			}
+			&.moz::before {
+				background: #fa0;
+				content: 'Best in Firefox';
+			}
+			&.retina::before {
+				background: white;
+				color: black;
+				content: 'Best on Retina';
+			}
 			> a > img, > img {
 				position: absolute;
 				left: 0; top: 0;
@@ -269,6 +309,11 @@ section {
 					&:hover {
 						top: 0;
 					}
+				}
+				&::before {
+					top: $banner-inset - $banner-height / 2;
+					left: $banner-inset - $banner-margin - $banner-width / 2;
+					opacity: 1;
 				}
 			}
 			a.feature {
