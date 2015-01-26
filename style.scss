@@ -1,6 +1,21 @@
 ---
 ---
 
+@mixin transition($params) {
+	transition: $params;
+	-ms-transition: $params;
+	-o-transition: $params;
+	-moz-transition: $params;
+	-webkit-transition: $params;
+}
+@mixin transform($params) {
+	transform: $params;
+	-ms-transform: $params;
+	-o-transform: $params;
+	-moz-transform: $params;
+	-webkit-transform: $params;
+}
+
 body {
 	background: white;
 	margin: 0;
@@ -54,11 +69,7 @@ section {
 					text-decoration: none;
 					padding: 0 0 0 30px;
 					opacity: .5;
-					transition: all 0.3s;
-					-ms-transition: all 0.3s;
-					-o-transition: all 0.3s;
-					-moz-transition: all 0.3s;
-					-webkit-transition: all 0.3s;
+					@include transition(all 0.3s);
 					color: blue;
 					&::before {
 						position: relative;
@@ -70,10 +81,6 @@ section {
 						width: 45px;
 						height: 45px;
 						border-radius: 25px;
-						-ms-border-radius: 25px;
-						-o-border-radius: 25px;
-						-webkit-border-radius: 25px;
-						-moz-border-radius: 25px;
 					}
 					&:hover {
 						opacity: 1;
@@ -103,15 +110,11 @@ section {
 			}
 		}
 	}
-	
+
 	&#footer {
 		text-align: center;
 		img, p {
-			transition: all 0.6s;
-			-ms-transition: all 0.6s;
-			-o-transition: all 0.6s;
-			-moz-transition: all 0.6s;
-			-webkit-transition: all 0.6s;
+			@include transition(all 0.6s);
 		}
 		.over, img.none, p#otherwise.none {
 			opacity: 1;
@@ -154,10 +157,7 @@ section {
 		}
 		> div {
 			background: #fff;
-			transition: all 0.5s;
-			-moz-transition: all 0.5s;
-			-webkit-transition: all 0.5s;
-			-o-transition: all 0.5s;
+			@include transition(all 0.5s);
 			border: 11px solid #fff;
 			width: 350px; height: 250px;
 			overflow: hidden;
@@ -168,10 +168,7 @@ section {
 			box-shadow: 0 5px 10px black;
 			> .ribbon {
 				opacity: 0;
-				transition: all 0.5s;
-				-moz-transition: all 0.5s;
-				-webkit-transition: all 0.5s;
-				-o-transition: all 0.5s;
+				@include transition(all 0.5s);
 				position: relative;
 				float: right;
 				margin-right: 16px;
@@ -236,15 +233,8 @@ section {
 				left: 0; top: 0;
 				border: none;
 				z-index: 1;
-				transform: none;
-				-ms-transform: none;
-				-webkit-transform: none;
-				-o-transform: none;
-				-moz-transform: none;
-				transition: all 0.5s;
-				-moz-transition: all 0.5s;
-				-webkit-transition: all 0.5s;
-				-o-transition: all 0.5s;
+				@include transform(none);
+				@include transition(all 0.5s);
 			}
 			> p, > form {
 				position: absolute;
@@ -254,14 +244,10 @@ section {
 				font-size: 17px;
 				text-align: left;
 				width: 290px;
-				-moz-opacity: 0;
 				padding: 20px; margin: 10px;
 				background-color: rgba(255,255,255,0.9);
 				z-index: 2;
-				transition: all 0.5s;
-				-moz-transition: all 0.5s;
-				-webkit-transition: all 0.5s;
-				-o-transition: all 0.5s;
+				@include transition(all 0.5s);
 				a:hover {
 					color: #800;
 				}
@@ -270,24 +256,16 @@ section {
 				border-color: #eef;
 				background: #eef;
 				> a > img, > img {
-					transform: rotate(-5deg) scale(1.2, 1.2);
-					/*-ms-transform: rotate(-5deg) scale(1.2, 1.2);*/
-					-webkit-transform: rotate(-5deg) scale(1.2, 1.2);
-					-o-transform: rotate(-5deg) scale(1.2, 1.2);
-					-moz-transform: rotate(-5deg) scale(1.2, 1.2);
+					@include transform(rotate(-5deg) scale(1.2, 1.2));
 				}
 				> p, > form {
 					bottom: 0px;
 					opacity: 1;
-					-moz-opacity: 1;
 				}
 				> .ribbon {
 					opacity: 1;
 					top: -5px;
-					transition: all 0.3s;
-					-moz-transition: all 0.3s;
-					-webkit-transition: all 0.3s;
-					-o-transition: all 0.3s;
+					@include transition(all 0.3s);
 					&:hover {
 						top: 0;
 					}
@@ -349,14 +327,10 @@ section {
 .konami, .konami *, .konami *:before {
 	font-family: 'Press Start 2P' !important;
 	border-radius: 0 !important;
-	-ms-border-radius: 0 !important;
-	-o-border-radius: 0 !important;
-	-webkit-border-radius: 0 !important;
-	-moz-border-radius: 0 !important;
-	transition: none !important;
-	-moz-transition: none !important;
-	-webkit-transition: none !important;
-	-o-transition: none !important;
+	@include transform(none !important);
+	@include transition(none !important);
+	box-shadow: none !important;
+	text-shadow: none !important;
 }
 .knoami {
 	p {

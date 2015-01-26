@@ -1,8 +1,20 @@
-function bind() {
-	var ids = ['leeds', 'uom', 'ms'];
-	var imgs = [];
-	var ps = [];
-	var otherwise = document.getElementById('otherwise');
+document.addEventListener('DOMContentLoaded', function() {
+
+	// Parallax
+	var header = document.getElementsByTagName('h1')[0],
+		body = document.getElementById('toys');
+	document.addEventListener('scroll', function() {
+		header.style.backgroundPosition =
+		body.style.backgroundPosition =
+			(window.scrollX / 2) + 'px ' +
+			(window.scrollY / 2) + 'px';
+	});
+
+	// Hover text in the footer
+	var ids = ['leeds', 'uom', 'ms'],
+		imgs = [],
+		ps = [],
+		otherwise = document.getElementById('otherwise');
 	for (var i = ids.length - 1; i >= 0; i--) {
 		imgs[i] = document.getElementById(ids[i]);
 		ps[i] = document.getElementById(ids[i] + '-p');
@@ -24,8 +36,9 @@ function bind() {
 		});
 	}
 
-	var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-	var k = 0;
+	// Easter egg
+	var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
+		k = 0;
 	window.addEventListener('keydown', function(e) {
 		if (e.keyCode != konami[k])
 			k = 0;
@@ -60,14 +73,5 @@ function bind() {
 			}
 			k = 0;
 		}
-	});
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-	var header = document.getElementsByTagName('h1')[0],
-		body = document.getElementById('toys');
-	document.addEventListener('scroll', function() {
-		header.style.backgroundPosition =
-		body.style.backgroundPosition = '0 ' + (document.body.scrollTop / 2) + 'px';
 	});
 });
