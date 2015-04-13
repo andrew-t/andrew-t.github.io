@@ -1,0 +1,390 @@
+---
+---
+
+@mixin transition($params) {
+	transition: $params;
+	-ms-transition: $params;
+	-o-transition: $params;
+	-moz-transition: $params;
+	-webkit-transition: $params;
+}
+@mixin transform($params) {
+	transform: $params;
+	-ms-transform: $params;
+	-o-transform: $params;
+	-moz-transform: $params;
+	-webkit-transform: $params;
+}
+
+$banner-height: 20px;
+$banner-font-size: 15px;
+$banner-width: 150px;
+$banner-margin: 100px;
+$banner-inset: 50px;
+$banner-offset: -20px;
+
+body {
+	background: white;
+	margin: 0;
+	> h1 {
+		/* TODO - get headline image */
+		margin: 0;
+		padding: 0 0 0 50px;
+		font-size: 90px;
+		text-align: left;
+		background: url('images/textured_paper.png') #ccc;
+		a {
+			color: white;
+			text-decoration: none;
+			text-shadow: 0 5px 10px black;
+		}
+	}
+}
+
+h1 {
+	font-family: "Neuton", serif;
+	font-weight: bold;
+}
+
+section {
+	padding: 30px 0;
+	margin: 0;
+	position: relative;
+	h1 {
+		color: black;
+		font-size: 70px;
+		margin: 0;
+		position: absolute;
+		left: 50px;
+		top: 10px;
+		width: 320px;
+	}
+	&#contact {
+		box-shadow: 0 5px 10px black;
+		position: relative;
+		z-index: 1;
+		ul {
+			margin: 0;
+			padding: 0 0 0 380px;
+			list-style: none;
+			font-family: "Poly", serif;
+			font-size: 40px;
+			li {
+				margin: 10px 0;
+				a {
+					margin: 10px 0;
+					text-decoration: none;
+					padding: 0 0 0 30px;
+					opacity: .5;
+					@include transition(all 0.3s);
+					color: blue;
+					&::before {
+						position: relative;
+						top: 5px;
+						left: -15px;
+						text-align: center;
+						display: inline-block;
+						content: '\00a0';
+						width: 45px;
+						height: 45px;
+						border-radius: 25px;
+					}
+					&:hover {
+						opacity: 1;
+					}
+					&.twitter:before {
+						background-color: #4099FF;
+						background-repeat: no-repeat;
+						background-size: contain;
+						background-position: 1px 1px;
+						background-image: url('images/twitter-bird-dark-bgs.png');
+					}
+					&.rss:before {
+						background-color: #F80;
+						background-repeat: no-repeat;
+						background-size: 60%;
+						background-position: 9px 9px;
+						background-image: url('images/rss.png');
+					}
+					&.email:before {
+						background-color: #FF4040;
+						content: 'e';
+						line-height: 37px;
+						top: 2px;
+						color: white;
+					}
+				}
+			}
+		}
+	}
+
+	&#footer {
+		text-align: center;
+		img, p {
+			@include transition(all 0.6s);
+		}
+		.over, img.none, p#otherwise.none {
+			opacity: 1;
+		}
+		img.other {
+			opacity: 0.5;
+		}
+		div {
+			position: relative;
+		}
+		p {
+			position: absolute;
+			top: 20px;
+			left: 0;
+			right: 0;
+			margin: 0 25% 50px 25%;
+			padding-bottom: 35px;
+			font-family: "Poly", serif;
+			font-size: 20px;	
+			opacity: 0;
+		}
+		#uom {
+			margin-bottom: 5px;
+			margin-left: 20px;
+			margin-right: 15px;
+		}
+		#leeds {
+			margin-bottom: 3px;
+		}
+	}
+
+	&.boxes {
+		display: inline-block;
+		text-align: center;
+		background: url('images/textured_paper.png') #ccc;
+		/* fake footer shadow: */
+		box-shadow: inset 0 -15px 10px -20px black;
+		> h1 {
+			display: none;
+		}
+		> div {
+			background: #fff;
+			@include transition(all 0.5s);
+			border: 11px solid #fff;
+			width: 350px; height: 250px;
+			overflow: hidden;
+			margin: 15px;
+			padding: 0;
+			position: relative;
+			display: inline-block;
+			box-shadow: 0 5px 10px black;
+			> .ribbon {
+				opacity: 0;
+				@include transition(all 0.5s);
+				position: relative;
+				float: right;
+				margin-right: 16px;
+				top: -20px;
+				width: 0px;
+				height: 37px;
+				border: 24px solid #55f;
+				border-bottom: 24px solid transparent !important;
+				z-index: 10;
+				/* Colours */
+				&.github {
+					border-color: #a00;
+				}
+				&.android {
+					border-color: #080;
+				}
+				&.mashable {
+					border-color: #00aeef;
+				}
+				/* stitching */
+				&:before {
+					position: absolute;
+					top: -24px;
+					left: -22px;
+					width: 42px;
+					height: 82px;
+					border-left: 1px dashed yellow;
+					border-right: 1px dashed yellow;
+					z-index: 11;
+					content: '';
+				}
+				/* logos */
+				&:after {
+					position: absolute;
+					top: -7px;
+					width: 32px;
+					left: -16px;
+					content: '';
+				}
+				&.github:after {
+					top: -4px;
+					height: 32px;
+					background: url('images/github/GitHub-Mark-Light-32px.png');
+				}
+				&.android:after {
+					top: -7px;
+					height: 37px;
+					background: url('images/android/32.png');
+				}
+				&.mashable:after {
+					top: -7px;
+					height: 37px;
+					content: 'M';
+					color: white;
+					font-family: sans-serif;
+					font-weight: bold;
+					font-size: 32px;
+				}
+			}
+			&::before {
+				position: absolute;
+				top: $banner-inset + $banner-offset - $banner-height / 2;
+				left: $banner-inset - $banner-margin - $banner-width / 2;
+				display: block;
+				color: white;
+				height: $banner-height;
+				width: $banner-width;
+				text-align: center;
+				@include transform(rotate(-45deg));
+				z-index: 100;
+				padding: 0 $banner-margin;
+				font-family: sans-serif;
+				font-size: $banner-font-size;
+				line-height: $banner-height;
+				@include transition(all 0.5s);
+				opacity: 0;
+				cursor: pointer;
+				pointer-events: none;
+			}
+			&.webkit::before {
+				background: #03d;
+				content: 'Best in Webkit';
+			}
+			&.moz::before {
+				background: #fa0;
+				content: 'Best in Firefox';
+			}
+			&.retina::before {
+				background: white;
+				color: black;
+				content: 'Best on Retina';
+			}
+			> a > img, > img {
+				position: absolute;
+				left: 0; top: 0;
+				border: none;
+				z-index: 1;
+				@include transform(none);
+				@include transition(all 0.5s);
+			}
+			> p, > form {
+				position: absolute;
+				left: 0px; bottom: -30px;
+				opacity: 0;
+				font-family: "Poly", serif;
+				font-size: 17px;
+				text-align: left;
+				width: 290px;
+				padding: 20px; margin: 10px;
+				background-color: rgba(255,255,255,0.9);
+				z-index: 2;
+				@include transition(all 0.5s);
+				a:hover {
+					color: #800;
+				}
+			}
+			&:hover {
+				border-color: #eef;
+				background: #eef;
+				> a > img, > img {
+					@include transform(rotate(-5deg) scale(1.2, 1.2));
+				}
+				> p, > form {
+					bottom: 0px;
+					opacity: 1;
+				}
+				> .ribbon {
+					opacity: 1;
+					top: -5px;
+					@include transition(all 0.3s);
+					&:hover {
+						top: 0;
+					}
+				}
+				&::before {
+					top: $banner-inset - $banner-height / 2;
+					left: $banner-inset - $banner-margin - $banner-width / 2;
+					opacity: 1;
+				}
+			}
+			a.feature {
+				font-weight: bold;
+				color: #00f;
+				text-decoration: underline;
+				&:hover {
+					color: #f00;
+				}
+			}
+		}
+	}
+
+}
+
+@media (max-width: 880px) {
+	section {
+		h1 {
+			display: none;
+		}
+		ul {
+			padding: 0;
+			width: 460px;
+			display: block;
+			margin: auto;
+		}
+	}
+}
+@media (max-width: 540px) {
+	body > h1 {
+		text-align: center;
+		padding: 0;
+	}
+}
+@media (max-width: 475px) {
+	body > h1 {
+		font-size: 40px;
+	}
+	section {
+		li {
+			font-size: 20px;
+		}
+		a::before {
+			display: none;
+		}
+	}
+}
+@media (pointer: coarse) {
+	ul a {
+		opacity: 1;
+	}
+}
+
+/* EASTER EGG! */
+
+.konami, .konami *, .konami *:before {
+	font-family: 'Press Start 2P' !important;
+	border-radius: 0 !important;
+	@include transform(none !important);
+	@include transition(none !important);
+	box-shadow: none !important;
+	text-shadow: none !important;
+}
+.knoami {
+	p {
+		font-size: 14px !important;
+	}
+	h1 {
+		font-size: 48px !important;
+	}
+	li {
+		font-size: 32px !important;
+	}
+}
