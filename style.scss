@@ -32,6 +32,7 @@ body {
 		padding: 0 0 0 50px;
 		font-size: 90px;
 		text-align: left;
+		line-height: 2;
 		background: url('images/textured_paper.png') #ccc;
 		a {
 			color: white;
@@ -172,6 +173,7 @@ section {
 			padding: 0;
 			position: relative;
 			display: inline-block;
+			border-radius: 8px;
 			box-shadow: 0 5px 10px black;
 			> .ribbon {
 				opacity: 0;
@@ -277,6 +279,7 @@ section {
 				@include transition(all 0.5s);
 			}
 			> p, > form {
+				border-radius: 4px;
 				position: absolute;
 				left: 0px; bottom: -30px;
 				opacity: 0;
