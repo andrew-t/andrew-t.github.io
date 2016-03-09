@@ -380,7 +380,7 @@ section {
 	height: 72px;
 	bottom: 36px;
 	right: 36px;
-	box-shadow: 6px 6px 12px black;
+	box-shadow: 2px 4px 12px black;
 	&:before {
 		background: white;
 		font-size: 36px;
@@ -394,7 +394,7 @@ section {
 		line-height: 1;
 		font-family: Neuton;
 		transition: all 300ms;
-		box-shadow: 6px 6px 12px black;
+		box-shadow: 2px 4px 12px black;
 	}
 	&.email {
 		background-image: url('images/mail.png');
