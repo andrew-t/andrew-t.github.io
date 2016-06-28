@@ -29,7 +29,7 @@ body {
 	> h1 {
 		/* TODO - get headline image */
 		margin: 0;
-		padding: 0 0 0 50px;
+		padding: 0 0 30px 50px;
 		font-size: 90px;
 		text-align: left;
 		background: url('images/textured_paper.png') #ccc;
@@ -154,6 +154,7 @@ section {
 	}
 
 	&.boxes {
+		padding-top: 0px;
 		display: inline-block;
 		text-align: center;
 		background: url('images/textured_paper.png') #ccc;
