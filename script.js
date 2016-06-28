@@ -19,8 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	function updateParallax() {
 		parallaxes.forEach(function (parallax) {
-			parallax.image.style.top = 
-				((parallax.container.offsetTop - window.scrollY + 100) / -2) + 'px';
+			var top = 0;
+			for (var el = parallax.container; el; el = el.parentElement)
+				top += el.offsetTop + parseInt(window.getComputedStyle(el).marginTop, 10);
+			parallax.image.style.top = ((top - window.scrollY) * -0.5) + 'px';
 		});
 		requestAnimationFrame(updateParallax);
 	}
