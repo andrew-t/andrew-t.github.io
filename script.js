@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 
-	if (window.requestAnimationFrame && !window.ontouchstart)
+	if (window.requestAnimationFrame && !('ontouchstart' in window))
 		requestAnimationFrame(updateParallax);
 
 	function updateParallax() {
