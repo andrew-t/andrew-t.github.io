@@ -1,19 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
 
 	// Parallax
-	var header = document.getElementsByTagName('h1')[0],
-		containers = document.getElementsByClassName('boxes');
+	var containers = document.getElementsByClassName('parallax'),
+		parallaxes = [];
+	for (var i = 0; i < containers.length; ++i) {
+		var before = document.createElement('div');
+		before.classList.add('before');
+		containers[i].appendChild(before);
+		parallaxes.push({
+			container: containers[i],
+			image: before
+		});
+	}
 
-	if (window.requestAnimationFrame)
+	if (window.requestAnimationFrame) {
 		requestAnimationFrame(updateParallax);
+	}
 
 	function updateParallax() {
-		var css =
-			(window.scrollX / 2) + 'px ' +
-			(window.scrollY / 2) + 'px';
-		header.style.backgroundPosition = css;
-		for (var i = 0; i < containers.length; ++i)
-			containers[i].style.backgroundPosition = css;
+		parallaxes.forEach(function (parallax) {
+			parallax.image.style.top = 
+				((parallax.container.offsetTop - window.scrollY + 100) / -2) + 'px';
+		});
 		requestAnimationFrame(updateParallax);
 	}
 
