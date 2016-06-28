@@ -2,13 +2,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Parallax
 	var header = document.getElementsByTagName('h1')[0],
-		body = document.getElementById('toys');
-	document.addEventListener('scroll', function() {
-		header.style.backgroundPosition =
-		body.style.backgroundPosition =
+		containers = document.getElementsByClassName('boxes');
+
+	if (window.requestAnimationFrame)
+		requestAnimationFrame(updateParallax);
+
+	function updateParallax() {
+		var css =
 			(window.scrollX / 2) + 'px ' +
 			(window.scrollY / 2) + 'px';
-	});
+		header.style.backgroundPosition = css;
+		for (var i = 0; i < containers.length; ++i)
+			containers[i].style.backgroundPosition = css;
+		requestAnimationFrame(updateParallax);
+	}
 
 	// Hover text in the footer
 	var ids = ['leeds', 'uom', 'ms'],

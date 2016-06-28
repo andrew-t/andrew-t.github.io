@@ -157,7 +157,20 @@ section {
 		padding-top: 0px;
 		display: inline-block;
 		text-align: center;
-		background: url('images/textured_paper.png') #ccc;
+		width: 100vw;
+		&.maths {
+			background: url('backgrounds/maths.jpg') #bbb;
+		}
+		&.game {
+			background: url('backgrounds/games.jpg') #422;
+		}
+		&.app {
+			background: url('backgrounds/apps.jpg') #422;
+		}
+		&.misc {
+			background: url('backgrounds/misc.jpg') #282;
+		}
+		background-size: 100vw;
 		/* fake footer shadow: */
 		box-shadow: inset 0 -15px 10px -20px black;
 		> h1 {
