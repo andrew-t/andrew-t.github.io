@@ -13,9 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 
-	if (window.requestAnimationFrame) {
+	if (window.requestAnimationFrame && !window.ontouchstart)
 		requestAnimationFrame(updateParallax);
-	}
 
 	function updateParallax() {
 		parallaxes.forEach(function (parallax) {
