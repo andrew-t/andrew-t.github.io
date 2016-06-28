@@ -1,14 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
 
 	// Parallax
-	var header = document.getElementsByTagName('h1')[0],
-		body = document.getElementById('toys');
-	document.addEventListener('scroll', function() {
-		header.style.backgroundPosition =
-		body.style.backgroundPosition =
-			(window.scrollX / 2) + 'px ' +
-			(window.scrollY / 2) + 'px';
-	});
+	var containers = document.getElementsByClassName('parallax'),
+		parallaxes = [];
+	for (var i = 0; i < containers.length; ++i) {
+		var before = document.createElement('div');
+		before.classList.add('before');
+		containers[i].appendChild(before);
+		parallaxes.push({
+			container: containers[i],
+			image: before
+		});
+	}
+
+	if (window.requestAnimationFrame) {
+		requestAnimationFrame(updateParallax);
+	}
+
+	function updateParallax() {
+		parallaxes.forEach(function (parallax) {
+			var top = 0;
+			for (var el = parallax.container; el; el = el.parentElement)
+				top += el.offsetTop + parseInt(window.getComputedStyle(el).marginTop, 10);
+			parallax.image.style.top = ((top - window.scrollY) * -0.5) + 'px';
+		});
+		requestAnimationFrame(updateParallax);
+	}
 
 	// Hover text in the footer
 	var ids = ['leeds', 'uom', 'ms'],

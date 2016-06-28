@@ -29,7 +29,7 @@ body {
 	> h1 {
 		/* TODO - get headline image */
 		margin: 0;
-		padding: 0 0 0 50px;
+		padding: 0 0 30px 50px;
 		font-size: 90px;
 		text-align: left;
 		background: url('images/textured_paper.png') #ccc;
@@ -38,7 +38,10 @@ body {
 			text-decoration: none;
 			text-shadow: 0 5px 10px black;
 		}
+		box-shadow: 0 5px 15px black;
 	}
+	font-size: 0;
+	> * { font-size: 1rem }
 }
 
 h1 {
@@ -59,66 +62,9 @@ section {
 		top: 10px;
 		width: 320px;
 	}
-	&#contact {
-		box-shadow: 0 5px 10px black;
-		position: relative;
-		z-index: 1;
-		ul {
-			margin: 0;
-			padding: 0 0 0 380px;
-			list-style: none;
-			font-family: "Poly", serif;
-			font-size: 40px;
-			li {
-				margin: 10px 0;
-				a {
-					margin: 10px 0;
-					text-decoration: none;
-					padding: 0 0 0 30px;
-					opacity: .5;
-					@include transition(all 0.3s);
-					color: blue;
-					&::before {
-						position: relative;
-						top: 5px;
-						left: -15px;
-						text-align: center;
-						display: inline-block;
-						content: '\00a0';
-						width: 45px;
-						height: 45px;
-						border-radius: 25px;
-					}
-					&:hover {
-						opacity: 1;
-					}
-					&.twitter:before {
-						background-color: #4099FF;
-						background-repeat: no-repeat;
-						background-size: contain;
-						background-position: 1px 1px;
-						background-image: url('images/twitter-bird-dark-bgs.png');
-					}
-					&.rss:before {
-						background-color: #F80;
-						background-repeat: no-repeat;
-						background-size: 60%;
-						background-position: 9px 9px;
-						background-image: url('images/rss.png');
-					}
-					&.email:before {
-						background-color: #FF4040;
-						content: 'e';
-						line-height: 37px;
-						top: 2px;
-						color: white;
-					}
-				}
-			}
-		}
-	}
 
 	&#footer {
+		background: white;
 		text-align: center;
 		img, p {
 			@include transition(all 0.6s);
@@ -156,13 +102,14 @@ section {
 	&.boxes {
 		display: inline-block;
 		text-align: center;
-		background: url('images/textured_paper.png') #ccc;
-		/* fake footer shadow: */
-		box-shadow: inset 0 -15px 10px -20px black;
+		width: 100vw;
+		position: relative;
+		overflow: hidden;
+
 		> h1 {
 			display: none;
 		}
-		> div {
+		> div:not(.before) {
 			background: #fff;
 			@include transition(all 0.5s);
 			border: 11px solid #fff;
@@ -364,6 +311,32 @@ section {
 @media (pointer: coarse) {
 	ul a {
 		opacity: 1;
+	}
+}
+
+.parallax {
+	.before {
+		position: absolute;
+		left: 0;
+		top: 0;
+		content: ' ';
+		width: 100vw;
+		height: calc(50vh + 50%);
+		z-index: -1;
+		background-size: cover;
+		background-color: #888;
+	}
+	&.maths .before {
+		background-image: url('backgrounds/maths.jpg');
+	}
+	&.game .before {
+		background-image: url('backgrounds/games.jpg');
+	}
+	&.app .before {
+		background-image: url('backgrounds/apps.jpg');
+	}
+	&.misc .before {
+		background-image: url('backgrounds/misc.jpg');
 	}
 }
 
