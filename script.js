@@ -1,14 +1,89 @@
+function trueYPos(element) {
+	for (var top = 0; element; element = element.parentElement)
+		top += element.offsetTop + parseInt(window.getComputedStyle(element).marginTop, 10);
+	return top;
+}
+
+function getScrollPosition() {
+	return document.body.scrollTop || window.scrollY;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 
 	// Parallax
-	var header = document.getElementsByTagName('h1')[0],
-		body = document.getElementById('toys');
-	document.addEventListener('scroll', function() {
-		header.style.backgroundPosition =
-		body.style.backgroundPosition =
-			(window.scrollX / 2) + 'px ' +
-			(window.scrollY / 2) + 'px';
-	});
+	var containers = document.getElementsByClassName('parallax'),
+		parallaxes = [];
+	for (var i = 0; i < containers.length; ++i) {
+		var before = document.createElement('div');
+		before.classList.add('before');
+		containers[i].appendChild(before);
+		parallaxes.push({
+			container: containers[i],
+			image: before
+		});
+	}
+
+	if (window.requestAnimationFrame && !('ontouchstart' in window)) {
+		requestParallax();
+		window.addEventListener('scroll', requestParallax);
+		window.addEventListener('resize', requestParallax);
+		var oldScroll = window.scroll;
+		window.scroll = function(x, y) {
+			requestParallax();
+			oldScroll.bind(window)(x, y);
+		};
+	}
+
+	var lastPosition = -1,
+		requested = false;
+	function requestParallax() {
+		if (!requested) {
+			requested = true;
+			requestAnimationFrame(updateParallax);
+		}
+	}
+	function updateParallax() {
+		parallaxes.forEach(function (parallax) {
+			parallax.image.style.top = ((trueYPos(parallax.container) - window.scrollY) * -0.5) + 'px';
+		});
+		if (lastPosition != getScrollPosition()) {
+			requestAnimationFrame(updateParallax);
+			lastPosition = getScrollPosition();
+		} else
+			requested = false;
+	}
+
+	// Smooth scroll
+	var scrollTarget = getScrollPosition(),
+		lastScrollTime,
+		scrollRate; // px/ms 
+	if (window.requestAnimationFrame)
+		document.body.addEventListener('click', function(e) {
+			var href = e.target.getAttribute('href');
+			if (/^#/.test(href)) {
+				e.preventDefault();
+				var anchors = document.getElementsByTagName('a'),
+					scrollTargetElement = null;
+				for (var i = 0; i < anchors.length && !scrollTargetElement; ++i)
+					if (anchors[i].getAttribute('name') == href.substr(1))
+						scrollTargetElement = anchors[i];
+				scrollTarget = trueYPos(scrollTargetElement.parentElement);
+				scrollRate = (scrollTarget - document.body.scrollTop) / 300;
+				lastScrollTime = null;
+				requestAnimationFrame(smoothScroll);
+			}
+		});
+	function smoothScroll(now) {
+		var interval = lastScrollTime ? now - lastScrollTime : 18;
+		lastScrollTime = now;
+		var nextScrollPosition = getScrollPosition() + scrollRate * interval;
+		if ((scrollTarget - nextScrollPosition) * scrollRate <= 0)
+			window.scroll(0, scrollTarget);
+		else {
+			window.scroll(0, nextScrollPosition);
+			requestAnimationFrame(smoothScroll);
+		}
+	}
 
 	// Hover text in the footer
 	var ids = ['leeds', 'uom', 'ms'],
@@ -44,6 +119,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			k = 0;
 		else if (++k == konami.length) {
 			document.body.className = 'konami';
+			var elements = document.getElementsByTagName('*');
+			for (var ii = elements.length - 1; ii >= 0; ii--)
+				elements[ii].style.backgroundImage = 'none';
 			var imgs = document.getElementsByTagName('img');
 			for (var ii = imgs.length - 1; ii >= 0; ii--) {
 				var i = imgs[ii];
