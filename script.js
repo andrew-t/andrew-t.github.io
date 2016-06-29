@@ -1,3 +1,13 @@
+function trueYPos(element) {
+	for (var top = 0; element; element = element.parentElement)
+		top += element.offsetTop + parseInt(window.getComputedStyle(element).marginTop, 10);
+	return top;
+}
+
+function getScrollPosition() {
+	return document.body.scrollTop || window.scrollY;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 
 	// Parallax
@@ -13,17 +23,65 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 
-	if (window.requestAnimationFrame && !('ontouchstart' in window))
-		requestAnimationFrame(updateParallax);
+	if (window.requestAnimationFrame && !('ontouchstart' in window)) {
+		requestParallax();
+		window.addEventListener('scroll', requestParallax);
+		var oldScroll = window.scroll;
+		window.scroll = function(x, y) {
+			requestParallax();
+			oldScroll.bind(window)(x, y);
+		};
+	}
 
+	var lastPosition = -1,
+		requested = false;
+	function requestParallax() {
+		if (!requested) {
+			requested = true;
+			requestAnimationFrame(updateParallax);
+		}
+	}
 	function updateParallax() {
 		parallaxes.forEach(function (parallax) {
-			var top = 0;
-			for (var el = parallax.container; el; el = el.parentElement)
-				top += el.offsetTop + parseInt(window.getComputedStyle(el).marginTop, 10);
-			parallax.image.style.top = ((top - window.scrollY) * -0.5) + 'px';
+			parallax.image.style.top = ((trueYPos(parallax.container) - window.scrollY) * -0.5) + 'px';
 		});
-		requestAnimationFrame(updateParallax);
+		if (lastPosition != getScrollPosition()) {
+			requestAnimationFrame(updateParallax);
+			lastPosition = getScrollPosition();
+		} else
+			requested = false;
+	}
+
+	// Smooth scroll
+	var scrollTarget = getScrollPosition(),
+		lastScrollTime,
+		scrollRate; // px/ms 
+	if (window.requestAnimationFrame)
+		document.body.addEventListener('click', function(e) {
+			var href = e.target.getAttribute('href');
+			if (/^#/.test(href)) {
+				e.preventDefault();
+				var anchors = document.getElementsByTagName('a'),
+					scrollTargetElement = null;
+				for (var i = 0; i < anchors.length && !scrollTargetElement; ++i)
+					if (anchors[i].getAttribute('name') == href.substr(1))
+						scrollTargetElement = anchors[i];
+				scrollTarget = trueYPos(scrollTargetElement.parentElement);
+				scrollRate = (scrollTarget - document.body.scrollTop) / 300;
+				lastScrollTime = null;
+				requestAnimationFrame(smoothScroll);
+			}
+		});
+	function smoothScroll(now) {
+		var interval = lastScrollTime ? now - lastScrollTime : 18;
+		lastScrollTime = now;
+		var nextScrollPosition = getScrollPosition() + scrollRate * interval;
+		if ((scrollTarget - nextScrollPosition) * scrollRate <= 0)
+			window.scroll(0, scrollTarget);
+		else {
+			window.scroll(0, nextScrollPosition);
+			requestAnimationFrame(smoothScroll);
+		}
 	}
 
 	// Hover text in the footer
