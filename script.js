@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	if (window.requestAnimationFrame)
 		document.body.addEventListener('click', function(e) {
 			var href = e.target.getAttribute('href');
-			if (/^#/.test(href)) {
+			if (/^#/.test(href) && href != '#about') {
 				e.preventDefault();
 				var anchors = document.getElementsByTagName('a'),
 					scrollTarget = null;
@@ -94,6 +94,25 @@ document.addEventListener('DOMContentLoaded', function() {
 					300);
 			}
 		});
+
+	// About
+	if (window.requestAnimationFrame) {
+		var aboutElement = document.getElementById('about'),
+			aboutChild = document.getElementById('about-child'),
+			aboutLink = document.getElementById('about-link');
+		function getH() { return aboutElement.clientHeight; }
+		function setH(h) {
+			aboutElement.style.height = h + 'px';
+			requestParallax();
+		}
+		aboutLink.addEventListener('click', function(e) {
+			if (getH() > 0)
+				animate(getH, setH, 0, 300);
+			else
+				animate(getH, setH, aboutChild.clientHeight, 300);
+			e.preventDefault();
+		});
+	}
 
 	// Hover text in the footer
 	var ids = ['leeds', 'uom', 'ms'],

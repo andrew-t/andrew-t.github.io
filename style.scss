@@ -40,6 +40,8 @@ body {
 	}
 	> nav {
 		/* TODO - get headline image */
+		position: relative;
+		z-index: 1;
 		margin: 0;
 		padding: 150px 0 0 0;
 		font-family: Heebo, Arial, Helvetica, sans-serif;
@@ -136,12 +138,6 @@ section {
 		position: relative;
 		overflow: hidden;
 
-		> h1 {
-			opacity: 0;
-			font-size: 0;
-			margin: 0;
-			padding: 0;
-		}
 		> div:not(.before) {
 			background: #fff;
 			@include transition(all 0.5s);
@@ -309,6 +305,34 @@ section {
 		}
 	}
 
+	&#about {
+		height: 0;
+		> div {
+			padding: 45px;
+			> p:first-of-type {
+				margin-top: 0;
+			}
+			> p:last-child {
+				margin-bottom: 0;
+			}
+		}
+		padding: 0;
+		z-index: 0;
+		font-family: Heebo;
+		font-size: 30px;
+		background: #830;
+		color: white;
+		overflow: hidden;
+	}
+}
+
+section.boxes, section#about {
+	h1 {
+		opacity: 0;
+		font-size: 0;
+		margin: 0;
+		padding: 0;
+	}
 }
 
 @media (max-width: 639px) {
