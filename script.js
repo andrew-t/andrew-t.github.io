@@ -1,11 +1,31 @@
 function trueYPos(element) {
 	for (var top = 0; element; element = element.parentElement)
-		top += element.offsetTop + parseInt(window.getComputedStyle(element).marginTop, 10);
+		top += element.offsetTop +
+			parseInt(window.getComputedStyle(element).marginTop, 10);
 	return top;
 }
 
 function getScrollPosition() {
 	return document.body.scrollTop || window.scrollY;
+}
+
+function animate(getter, setter, target, time) {
+	var lastUpdate = null,
+		cancelled = false,
+		speed = (target - getter()) / time;
+	requestAnimationFrame(nextFrame);
+	return function cancel() { cancelled = true; };
+	function nextFrame(now) {
+		var interval = lastUpdate ? now - lastUpdate : 18;
+		lastUpdate = now;
+		var nextValue = getter() + speed * interval;
+		if ((target - nextValue) * speed <= 0)
+			setter(target);
+		else if (!cancelled) {
+			setter(nextValue);
+			requestAnimationFrame(nextFrame);
+		}
+	}
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -54,36 +74,26 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	// Smooth scroll
-	var scrollTarget = getScrollPosition(),
-		lastScrollTime,
-		scrollRate; // px/ms 
+	var cancelScroll;
 	if (window.requestAnimationFrame)
 		document.body.addEventListener('click', function(e) {
 			var href = e.target.getAttribute('href');
 			if (/^#/.test(href)) {
 				e.preventDefault();
 				var anchors = document.getElementsByTagName('a'),
-					scrollTargetElement = null;
-				for (var i = 0; i < anchors.length && !scrollTargetElement; ++i)
+					scrollTarget = null;
+				for (var i = 0; i < anchors.length && !scrollTarget; ++i)
 					if (anchors[i].getAttribute('name') == href.substr(1))
-						scrollTargetElement = anchors[i];
-				scrollTarget = trueYPos(scrollTargetElement.parentElement);
-				scrollRate = (scrollTarget - document.body.scrollTop) / 300;
-				lastScrollTime = null;
-				requestAnimationFrame(smoothScroll);
+						scrollTarget = anchors[i];
+				if (cancelScroll)
+					cancelScroll();
+				cancelScroll = animate(
+					getScrollPosition,
+					function (y) { window.scroll(0, y); },
+					trueYPos(scrollTarget.parentElement),
+					300);
 			}
 		});
-	function smoothScroll(now) {
-		var interval = lastScrollTime ? now - lastScrollTime : 18;
-		lastScrollTime = now;
-		var nextScrollPosition = getScrollPosition() + scrollRate * interval;
-		if ((scrollTarget - nextScrollPosition) * scrollRate <= 0)
-			window.scroll(0, scrollTarget);
-		else {
-			window.scroll(0, nextScrollPosition);
-			requestAnimationFrame(smoothScroll);
-		}
-	}
 
 	// Hover text in the footer
 	var ids = ['leeds', 'uom', 'ms'],
