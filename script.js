@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	if (window.requestAnimationFrame && !('ontouchstart' in window)) {
 		requestParallax();
 		window.addEventListener('scroll', requestParallax);
+		window.addEventListener('resize', requestParallax);
 		var oldScroll = window.scroll;
 		window.scroll = function(x, y) {
 			requestParallax();
@@ -118,6 +119,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			k = 0;
 		else if (++k == konami.length) {
 			document.body.className = 'konami';
+			var elements = document.getElementsByTagName('*');
+			for (var ii = elements.length - 1; ii >= 0; ii--)
+				elements[ii].style.backgroundImage = 'none';
 			var imgs = document.getElementsByTagName('img');
 			for (var ii = imgs.length - 1; ii >= 0; ii--) {
 				var i = imgs[ii];
