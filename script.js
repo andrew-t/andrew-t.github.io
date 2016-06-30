@@ -16,12 +16,14 @@ function animate(getter, setter, target, time) {
 	requestAnimationFrame(nextFrame);
 	return function cancel() { cancelled = true; };
 	function nextFrame(now) {
+		if (cancelled)
+			return;
 		var interval = lastUpdate ? now - lastUpdate : 18;
 		lastUpdate = now;
 		var nextValue = getter() + speed * interval;
 		if ((target - nextValue) * speed <= 0)
 			setter(target);
-		else if (!cancelled) {
+		else {
 			setter(nextValue);
 			requestAnimationFrame(nextFrame);
 		}
@@ -99,17 +101,19 @@ document.addEventListener('DOMContentLoaded', function() {
 	if (window.requestAnimationFrame) {
 		var aboutElement = document.getElementById('about'),
 			aboutChild = document.getElementById('about-child'),
-			aboutLink = document.getElementById('about-link');
+			aboutLink = document.getElementById('about-link'),
+			aboutOpen = false,
+			cancelAbout;
 		function getH() { return aboutElement.clientHeight; }
 		function setH(h) {
 			aboutElement.style.height = h + 'px';
 			requestParallax();
 		}
 		aboutLink.addEventListener('click', function(e) {
-			if (getH() > 0)
-				animate(getH, setH, 0, 300);
-			else
-				animate(getH, setH, aboutChild.clientHeight, 300);
+			if (cancelAbout)
+				cancelAbout();
+			cancelAbout = animate(getH, setH, aboutOpen ? 0 : aboutChild.clientHeight, 300);
+			aboutOpen = !aboutOpen;
 			e.preventDefault();
 		});
 	}
