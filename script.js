@@ -9,7 +9,7 @@ function getScrollPosition() {
 	return document.body.scrollTop || window.scrollY;
 }
 
-function animate(getter, setter, target, time) {
+function animate(getter, setter, target, time, then) {
 	var lastUpdate = null,
 		cancelled = false,
 		speed = (target - getter()) / time;
@@ -21,9 +21,11 @@ function animate(getter, setter, target, time) {
 		var interval = lastUpdate ? now - lastUpdate : 18;
 		lastUpdate = now;
 		var nextValue = getter() + speed * interval;
-		if ((target - nextValue) * speed <= 0)
+		if ((target - nextValue) * speed <= 0) {
 			setter(target);
-		else {
+			if (then)
+				then();
+		} else {
 			setter(nextValue);
 			requestAnimationFrame(nextFrame);
 		}
@@ -104,15 +106,21 @@ document.addEventListener('DOMContentLoaded', function() {
 			aboutLink = document.getElementById('about-link'),
 			aboutOpen = false,
 			cancelAbout;
-		function getH() { return aboutElement.clientHeight; }
-		function setH(h) {
-			aboutElement.style.height = h + 'px';
-			requestParallax();
-		}
 		aboutLink.addEventListener('click', function(e) {
 			if (cancelAbout)
 				cancelAbout();
-			cancelAbout = animate(getH, setH, aboutOpen ? 0 : aboutChild.clientHeight, 300);
+			cancelAbout = animate(
+				function getH() { return aboutElement.clientHeight; },
+				function setH(h) {
+					aboutElement.style.height = h + 'px';
+					requestParallax();
+				},
+				aboutOpen ? 0 : aboutChild.clientHeight,
+				300,
+				aboutOpen ? null : function () { 
+					aboutElement.style.height = 'auto';
+					requestParallax();
+				});
 			aboutOpen = !aboutOpen;
 			e.preventDefault();
 		});
