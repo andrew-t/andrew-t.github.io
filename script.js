@@ -32,11 +32,90 @@ function animate(getter, setter, target, time, then) {
 	}
 }
 
+var expandables = {},
+	nextExpandableId = 0;
+function getOrRegisterExpandable(name, delay) {
+	var element, e;
+	if (name instanceof HTMLElement) {
+		element = name;
+		if (!element.id)
+			element.id = '__expandable_' + ++nextExpandableId;
+		name = name.id;
+	} else element = document.getElementById(name);
+	if (!expandables[name]) {
+		element.style.height = 0;
+		expandables[name] = e = {
+			element: element,
+			child: element.children[0],
+			isOpen: false,
+			cancel: null,
+			delay: delay || 300
+		};
+		e.toggle = function() {
+			toggleExpandable(e);
+		};
+		e.open = function() {
+			if (!e.isOpen) toggleExpandable(e);
+		};
+		e.close = function() {
+			if (e.isOpen) toggleExpandable(e);
+		};
+	}
+	return expandables[name];
+}
+
+function toggleExpandable(name) {
+	var e = (typeof name == 'object') ? name : expandables[name];
+	if (e.cancel)
+		e.cancel();
+	e.cancel = animate(
+		function getH() { return e.element.clientHeight; },
+		function setH(h) {
+			e.element.style.height = h + 'px';
+			requestParallax();
+		},
+		e.isOpen ? 0 : e.child.clientHeight,
+		e.delay,
+		e.isOpen ? null : function () { 
+			e.element.style.height = 'auto';
+			requestParallax();
+		});
+	e.isOpen = !e.isOpen;
+}
+
+function makeExpandable(name, delay) {
+	var e = getOrRegisterExpandable(name, delay);
+	document.getElementById(name + '-link')
+		.addEventListener('click', function(e) {
+			toggleExpandable(name);
+			e.preventDefault();
+		});
+}
+
+var lastPosition = -1,
+	parallaxes = [],
+	requested = false;
+function requestParallax() {
+	if (!requested) {
+		requested = true;
+		requestAnimationFrame(updateParallax);
+	}
+}
+function updateParallax() {
+	parallaxes.forEach(function (parallax) {
+		parallax.image.style.top = ((trueYPos(parallax.container) - window.scrollY) * -0.5) + 'px';
+	});
+	if (lastPosition != getScrollPosition()) {
+		requestAnimationFrame(updateParallax);
+		lastPosition = getScrollPosition();
+	} else
+		requested = false;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 
 	// Parallax
-	var containers = document.getElementsByClassName('parallax'),
-		parallaxes = [];
+	var containers = document.getElementsByClassName('parallax');
 	for (var i = 0; i < containers.length; ++i) {
 		var before = document.createElement('div');
 		before.classList.add('before');
@@ -56,25 +135,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			requestParallax();
 			oldScroll.bind(window)(x, y);
 		};
-	}
-
-	var lastPosition = -1,
-		requested = false;
-	function requestParallax() {
-		if (!requested) {
-			requested = true;
-			requestAnimationFrame(updateParallax);
-		}
-	}
-	function updateParallax() {
-		parallaxes.forEach(function (parallax) {
-			parallax.image.style.top = ((trueYPos(parallax.container) - window.scrollY) * -0.5) + 'px';
-		});
-		if (lastPosition != getScrollPosition()) {
-			requestAnimationFrame(updateParallax);
-			lastPosition = getScrollPosition();
-		} else
-			requested = false;
 	}
 
 	// Smooth scroll
@@ -100,29 +160,30 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 
 	// About
+	if (window.requestAnimationFrame)
+		makeExpandable('about', 300);
+
+	// Expand tips on icon click
 	if (window.requestAnimationFrame) {
-		var aboutElement = document.getElementById('about'),
-			aboutChild = document.getElementById('about-child'),
-			aboutLink = document.getElementById('about-link'),
-			aboutOpen = false,
-			cancelAbout;
-		aboutLink.addEventListener('click', function(e) {
-			if (cancelAbout)
-				cancelAbout();
-			cancelAbout = animate(
-				function getH() { return aboutElement.clientHeight; },
-				function setH(h) {
-					aboutElement.style.height = h + 'px';
-					requestParallax();
-				},
-				aboutOpen ? 0 : aboutChild.clientHeight,
-				300,
-				aboutOpen ? null : function () { 
-					aboutElement.style.height = 'auto';
-					requestParallax();
-				});
-			aboutOpen = !aboutOpen;
-			e.preventDefault();
+		var tips = document.getElementsByClassName('tooltip'),
+			expandables = [];
+		for (var i = 0; i < tips.length; ++i)
+			expandables.push(getOrRegisterExpandable(tips[i], 300));
+		document.body.addEventListener('click', function(e) {
+			for (var el = e.target; el; el = el.parentElement)
+				if (el.classList.contains('icon')) {
+					var id = el.getAttribute('data-slug') + '-tip',
+						c = el.getAttribute('data-class'),
+						ex = getOrRegisterExpandable(id);
+					if (ex) {
+						expandables.forEach(function (exp) {
+							if (exp.element.classList.contains(c) && exp != ex)
+								exp.close();
+						});
+						ex.toggle();
+						e.preventDefault();
+					}
+				}
 		});
 	}
 

@@ -85,15 +85,7 @@ section {
 	padding: 30px 0;
 	margin: 0;
 	position: relative;
-	h1 {
-		color: black;
-		font-size: 70px;
-		margin: 0;
-		position: absolute;
-		left: 50px;
-		top: 10px;
-		width: 320px;
-	}
+	font-size: 0;
 
 	&#footer {
 		background: white;
@@ -150,68 +142,6 @@ section {
 			display: inline-block;
 			border-radius: 8px;
 			box-shadow: 0 5px 10px black;
-			> .ribbon {
-				opacity: 0;
-				@include transition(all 0.5s);
-				position: relative;
-				float: right;
-				margin-right: 16px;
-				top: -20px;
-				width: 0px;
-				height: 37px;
-				border: 24px solid #55f;
-				border-bottom: 24px solid transparent !important;
-				z-index: 10;
-				/* Colours */
-				&.github {
-					border-color: #a00;
-				}
-				&.android {
-					border-color: #080;
-				}
-				&.mashable {
-					border-color: #00aeef;
-				}
-				/* stitching */
-				&:before {
-					position: absolute;
-					top: -24px;
-					left: -22px;
-					width: 42px;
-					height: 82px;
-					border-left: 1px dashed yellow;
-					border-right: 1px dashed yellow;
-					z-index: 11;
-					content: '';
-				}
-				/* logos */
-				&:after {
-					position: absolute;
-					top: -7px;
-					width: 32px;
-					left: -16px;
-					content: '';
-				}
-				&.github:after {
-					top: -4px;
-					height: 32px;
-					background: url('images/github/GitHub-Mark-Light-32px.png');
-				}
-				&.android:after {
-					top: -7px;
-					height: 37px;
-					background: url('images/android/32.png');
-				}
-				&.mashable:after {
-					top: -7px;
-					height: 37px;
-					content: 'M';
-					color: white;
-					font-family: sans-serif;
-					font-weight: bold;
-					font-size: 32px;
-				}
-			}
 			&::before {
 				position: absolute;
 				top: $banner-inset + $banner-offset - $banner-height / 2;
@@ -268,6 +198,7 @@ section {
 				@include transition(all 0.5s);
 				a:hover {
 					color: #800;
+					cursor: pointer;
 				}
 			}
 			&:hover {
@@ -301,12 +232,50 @@ section {
 				&:hover {
 					color: #f00;
 				}
+				cursor: pointer;
+			}
+			&.icon {
+				background: transparent;
+				border: none;
+				border-radius: 0;
+				width: 100px;
+				height: 100px;
+				box-shadow: none;
+				overflow: hidden;
+				> a.feature {
+					> img {
+						width: 100px;
+						height: 100px;
+						transform: none !important;
+					}
+				}
+				&:hover {
+					transform: scale(1.25);
+				}
 			}
 		}
 	}
 
-	&#about {
-		height: 0;
+	&.tooltip {
+		position: relative;
+		a.feature {
+			color: blue;
+			font-weight: bold;
+			&:hover {
+				color: red;
+			}
+		}
+		a.ribbon {
+			top: -50px;
+			right: -20px;
+			opacity: 1;
+			&:hover {
+				top: -45px;
+			}
+		}
+	}
+
+	&.expandable {
 		> div {
 			padding: 45px;
 			> p:first-of-type {
@@ -320,9 +289,13 @@ section {
 		z-index: 0;
 		font-family: Heebo;
 		font-size: 30px;
+		overflow: hidden;
+	}
+
+	&#about {
+		z-index: 0;
 		background: #830;
 		color: white;
-		overflow: hidden;
 	}
 }
 
@@ -332,6 +305,70 @@ section.boxes, section#about {
 		font-size: 0;
 		margin: 0;
 		padding: 0;
+	}
+}
+
+.ribbon {
+	opacity: 0;
+	@include transition(all 0.5s);
+	position: relative;
+	float: right;
+	margin-right: 16px;
+	top: -20px;
+	width: 0px;
+	height: 37px;
+	border: 24px solid #55f;
+	border-bottom: 24px solid transparent !important;
+	z-index: 10;
+	cursor: pointer;
+	/* Colours */
+	&.github {
+		border-color: #a00;
+	}
+	&.android {
+		border-color: #080;
+	}
+	&.mashable {
+		border-color: #00aeef;
+	}
+	/* stitching */
+	&:before {
+		position: absolute;
+		top: -24px;
+		left: -22px;
+		width: 42px;
+		height: 82px;
+		border-left: 1px dashed yellow;
+		border-right: 1px dashed yellow;
+		z-index: 11;
+		content: '';
+	}
+	/* logos */
+	&:after {
+		position: absolute;
+		top: -7px;
+		width: 32px;
+		left: -16px;
+		content: '';
+	}
+	&.github:after {
+		top: -4px;
+		height: 32px;
+		background: url('images/github/GitHub-Mark-Light-32px.png');
+	}
+	&.android:after {
+		top: -7px;
+		height: 37px;
+		background: url('images/android/32.png');
+	}
+	&.mashable:after {
+		top: -7px;
+		height: 37px;
+		content: 'M';
+		color: white;
+		font-family: sans-serif;
+		font-weight: bold;
+		font-size: 32px;
 	}
 }
 
