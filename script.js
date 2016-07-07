@@ -164,9 +164,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		makeExpandable('about', 300);
 
 	// Expand tips on icon click
+	var tips = document.getElementsByClassName('tooltip');
 	if (window.requestAnimationFrame) {
-		var tips = document.getElementsByClassName('tooltip'),
-			expandables = [];
+		var expandables = [];
 		for (var i = 0; i < tips.length; ++i)
 			expandables.push(getOrRegisterExpandable(tips[i], 300));
 		document.body.addEventListener('click', function(e) {
@@ -185,7 +185,9 @@ document.addEventListener('DOMContentLoaded', function() {
 					}
 				}
 		});
-	}
+	} else
+		for (var i = 0; i < tips.length; ++i)
+			tips[i].style.height = '0';
 
 	// Hover text in the footer
 	var ids = ['leeds', 'uom', 'ms'],
