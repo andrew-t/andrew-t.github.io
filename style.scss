@@ -162,6 +162,10 @@ section {
 				cursor: pointer;
 				pointer-events: none;
 			}
+			&.android-only::before {
+				background: #a4c439;
+				content: 'Android Only';
+			}
 			&.webkit::before {
 				background: #03d;
 				content: 'Best in Webkit';
