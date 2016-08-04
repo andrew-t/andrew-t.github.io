@@ -37,7 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 
-	if (window.requestAnimationFrame && !('ontouchstart' in window)) {
+	if (window.requestAnimationFrame &&
+		window.devicePixelRatio <= 1.5 &&
+		!('ontouchstart' in window)) {
 		request();
 		window.addEventListener('scroll', request);
 		window.addEventListener('resize', request);
@@ -46,5 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			request();
 			oldScroll.bind(window)(x, y);
 		};
-	}
+	} else parallaxes.forEach(function(parallax) {
+		parallax.image.style.height = '100%';
+	});
 });
