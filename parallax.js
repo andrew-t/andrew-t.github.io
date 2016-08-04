@@ -1,28 +1,29 @@
+window.Parallax = {
+	assumeStatic: false,
+	request: function() {}
+};
+
 document.addEventListener('DOMContentLoaded', function() {
 	var lastPosition = -1;
 	var parallaxes = [];
-	var requested = false;
-
-	function request() {
-		if (!requested) {
-			requested = true;
-			requestAnimationFrame(update);
-		}
-	}
-
-	// Some modules may need to trigger this manually:
-	window.requestParallax = request;
 
 	function update() {
-		parallaxes.forEach(function (parallax) {
-			parallax.image.style.top = ((Tools.trueYPos(parallax.container) - window.scrollY) * -0.5) + 'px';
-		});
+		requestAnimationFrame(update);
 		var scrollPos = Tools.getScrollPosition();
 		if (lastPosition != scrollPos) {
-			requestAnimationFrame(update);
-			lastPosition = scrollPos;
-		} else
+			updating = true;
 			requested = false;
+			for (var i = parallaxes.length - 1; i >= 0; i--) {
+				var parallax = parallaxes[i];
+				if (!Parallax.assumeStatic ||
+					parallax.coords === undefined)
+					parallax.coords = Tools.getCoords(parallax.container);
+				if (parallax.coords.top <= scrollPos + window.innerHeight &&
+					parallax.coords.top + parallax.coords.height >= scrollPos)
+					parallax.image.style.top = ((parallax.coords.top - scrollPos) * -0.5) + 'px';
+			}
+			lastPosition = scrollPos;
+		}
 	}
 
 	// Parallax
@@ -33,18 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		containers[i].appendChild(before);
 		parallaxes.push({
 			container: containers[i],
-			image: before
+			image: before,
+			coords: Tools.getCoords(containers[i])
 		});
 	}
 
-	if (window.requestAnimationFrame && !('ontouchstart' in window)) {
-		request();
-		window.addEventListener('scroll', request);
-		window.addEventListener('resize', request);
-		var oldScroll = window.scroll;
-		window.scroll = function(x, y) {
-			request();
-			oldScroll.bind(window)(x, y);
-		};
-	}
+	if (window.requestAnimationFrame && !('ontouchstart' in window))
+		requestAnimationFrame(update);
 });

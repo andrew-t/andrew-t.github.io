@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+	// Set fast parallax
+	Parallax.assumeStatic = true;
+
 	// Expand tips on icon click
 	var tips = document.getElementsByClassName('tooltip');
 	if (window.requestAnimationFrame) {
