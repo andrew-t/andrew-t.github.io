@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	Pages.make('fractals-page', 'fractals-link');
 	Pages.make('snake-page', 'snake-link');
 	Pages.make('mosaic-page', 'mosaic-link');
+	Pages.make('command-line-page', 'command-line-link');
 
 	// Hover text in the footer
 	var ids = ['leeds', 'uom', 'ms'],
