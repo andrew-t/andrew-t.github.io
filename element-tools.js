@@ -1,9 +1,29 @@
 var Tools = {
+	// from http://stackoverflow.com/a/26230989/1491108
+	getCoords: function getCoords(elem) {
+		var box = elem.getBoundingClientRect(),
+			body = document.body,
+			docEl = document.documentElement,
+			scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop,
+			scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft,
+			clientTop = docEl.clientTop || body.clientTop || 0,
+			clientLeft = docEl.clientLeft || body.clientLeft || 0,
+			top  = box.top +  scrollTop - clientTop,
+			left = box.left + scrollLeft - clientLeft;
+		return {
+			top: Math.round(top),
+			left: Math.round(left),
+			width: box.width,
+			height: box.height
+		};
+	},
+	
+ 	getScrollPosition: function getScrollPosition() {
+		return window.scrollY || document.body.scrollTop;
+	},
+
 	trueYPos: function trueYPos(element) {
-		for (var top = 0; element; element = element.parentElement)
-			top += element.offsetTop +
-				parseInt(window.getComputedStyle(element).marginTop, 10);
-		return top;
+		return Tools.getCoords(element).top;
 	},
 
 	getScrollPosition: function getScrollPosition() {
