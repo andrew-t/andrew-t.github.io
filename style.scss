@@ -152,7 +152,7 @@ section {
 				width: $banner-width;
 				text-align: center;
 				@include transform(rotate(-45deg));
-				z-index: 100;
+				z-index: 18;
 				padding: 0 $banner-margin;
 				font-family: sans-serif;
 				font-size: $banner-font-size;
@@ -436,7 +436,7 @@ section.boxes, section#about {
 	background-repeat: no-repeat;
 	border-radius: 100%;
 	position: fixed;
-	z-index: 100;
+	z-index: 19;
 	width: 72px;
 	height: 72px;
 	bottom: 36px;
@@ -491,5 +491,120 @@ section.boxes, section#about {
 	}
 	li {
 		font-size: 32px !important;
+	}
+}
+
+// Overlaid pages:
+
+.pages {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 20;
+	overflow: auto;
+
+	> section {
+		box-shadow: 0 0 5em black;
+		border-radius: 0.5em;
+		background: white;
+		position: absolute;
+		width: 70vw;
+		left: 10vw;
+		top: 10vh;
+		margin: 0 0 10vh 0;
+		padding: 2.5vw 5vw 5vw 5vw;
+		font-size: 2rem;
+		color: black;
+		z-index: 21;
+		font-family: Heebo, Arial, Helvetica, sans-serif;
+
+		h1 {
+			font-family: Heebo, Arial, Helvetica, sans-serif;
+			font-size: 4rem;
+		}
+
+		a[href] {
+			text-decoration: none;
+			font-weight: bold;
+			color: #00f;
+			&:hover {
+				color: #a00;
+			}
+			transition: color 150ms;
+		}
+
+		section {
+			h1 {
+				font-size: 3rem;
+				margin: 1em 0 0 0;
+			}
+			padding: 0;
+			font-size: 2rem;
+		}
+
+		max-height: 1000000vh;
+		&.hidden {
+			opacity: 0;
+			top: 50vh;
+			max-height: 0;
+			overflow: hidden;
+
+			transition-property: opacity, top, max-height, overflow;
+			transition-duration: 300ms, 300ms, 0s, 0s;
+			transition-delay: 0s, 0s, 300ms, 300ms;
+			-webkit-transition-delay: 0s, 0s, 300ms, 300ms;
+			-moz-transition-delay: 0s, 0s, 300ms, 300ms;
+		}
+		transition-property: opacity, top;
+		transition-duration: 300ms, 300ms;
+		transition-delay: 0s, 0s;
+		-webkit-transition-delay: 0s, 0s;
+		-moz-transition-delay: 0s, 0s;
+
+		&:after {
+			// Force the scroll to go further
+			position: relative;
+			content: 'aaa';
+			top: 40vh;
+		}
+	}
+
+	&:after {
+		position: fixed;
+		background: #000;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100vw;
+		content: ' ';
+
+		opacity: 0.5;
+		transition-property: opacity;
+		transition-duration: 300ms;
+		transition-delay: 0s;
+		-webkit-transition-delay: 0s;
+		-moz-transition-delay: 0s;
+	}
+
+	&.hidden {
+		&:after {
+			opacity: 0;
+			left: -1000vw;
+			// Move it out of click range when it's invisible:
+			transition-property: opacity, left;
+			transition-duration: 300ms, 0s;
+			transition-delay: 0s, 300ms;
+			-webkit-transition-delay: 0s, 300ms;
+			-moz-transition-delay: 0s, 300ms;
+		}
+		// Move it out of click range when it's invisible:
+		left: -1000vw;
+		transition-property: left;
+		transition-duration: 0s;
+		transition-delay: 300ms;
+		-webkit-transition-delay: 300ms;
+		-moz-transition-delay: 300ms;
 	}
 }

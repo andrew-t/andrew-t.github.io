@@ -1,9 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-	// About
-	if (window.requestAnimationFrame)
-		Expandables.make('about', 300);
-
 	// Expand tips on icon click
 	var tips = document.getElementsByClassName('tooltip');
 	if (window.requestAnimationFrame) {
@@ -29,6 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	} else
 		for (var i = 0; i < tips.length; ++i)
 			tips[i].style.height = '0';
+	// Expandable pages
+	Pages.make('about-page', 'about-link');
+	Pages.make('fractals-page', 'fractals-link');
+	Pages.make('snake-page', 'snake-link');
 
 	// Hover text in the footer
 	var ids = ['leeds', 'uom', 'ms'],
