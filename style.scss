@@ -549,13 +549,14 @@ section.boxes, section#about {
 			opacity: 0;
 			top: 50vh;
 			max-height: 0;
+			left: -1000vw;
 			overflow: hidden;
 
-			transition-property: opacity, top, max-height, overflow;
-			transition-duration: 300ms, 300ms, 0s, 0s;
-			transition-delay: 0s, 0s, 300ms, 300ms;
-			-webkit-transition-delay: 0s, 0s, 300ms, 300ms;
-			-moz-transition-delay: 0s, 0s, 300ms, 300ms;
+			transition-property: opacity, top, max-height, overflow, left;
+			transition-duration: 300ms, 300ms, 0s, 0s, 0s;
+			transition-delay: 0s, 0s, 300ms, 300ms, 300ms;
+			-webkit-transition-delay: 0s, 0s, 300ms, 300ms, 300ms;
+			-moz-transition-delay: 0s, 0s, 300ms, 300ms, 300ms;
 		}
 		transition-property: opacity, top;
 		transition-duration: 300ms, 300ms;
