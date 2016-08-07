@@ -17,7 +17,6 @@
 		<script src="element-tools.js"></script>
 		<script src="parallax.js"></script>
 		<script src="smooth-scroll.js"></script>
-		<script src="expandables.js"></script>
 		<script src="overlaid-pages.js"></script>
 	</head>
 	<body>
@@ -32,7 +31,7 @@
 				<li><a href="#games">Games</a></li>
 				<li><a href="#apps">Apps</a></li>
 				<li><a href="#misc">Miscellany</a></li>
-				<li><a href="javascript:var strength=strength?strength*2:0.05,time=time||2,loop=loop||false,ivl,c=document.getElementsByTagName('*'),fn=function(){for(var i=0;i<c.length;++i){for(var m='',e=c[i],f=[e.offsetWidth,e.offsetHeight,100,1],x=0;x<4;++x)for(var y=0,t,s=strength/f[x];y<4;++y)m+=(m?', ':'')+((Math.random()*s-s/2)+(x==y));t='transform '+time+'s';e.style.transition=t;e.style.mozTransition='-moz-'+t;e.style.webkitTransition='-webkit-'+t;e.style.transform=e.style.mozTransform=e.style.webkitTransform='matrix3d('+m+')';}};if(ivl)clearInterval(ivl);if(loop)ivl=setInterval(fn,time*1000);fn();">Warp</a></li>
+				<li><a href="javascript:var strength=strength?strength*2:0.05,time=time||2,loop=loop||false,ivl,c=document.getElementsByTagName('*'),fn=function(){for(var i=0;i<c.length;++i){for(var m='',e=c[i],f=[e.offsetWidth,e.offsetHeight,100,1],x=0;x<4;++x)for(var y=0,t,s=strength/f[x];y<4;++y)m+=(m?', ':'')+((Math.random()*s-s/2)+(x==y));t='transform '+time+'s';e.style.transition=t;e.style.mozTransition='-moz-'+t;e.style.webkitTransition='-webkit-'+t;e.style.transform=e.style.mozTransform=e.style.webkitTransform='matrix3d('+m+')';}};if(ivl)clearInterval(ivl);if(loop)ivl=setInterval(fn,time*1000);fn();" title="Drag this into your bookmark bar; it works anywhere.">Warp</a></li>
 			</ul>
 		</nav>
 
@@ -67,18 +66,7 @@
 				<p>I've built a <a href="http://github.andrewt.net/menger" class="feature">3D image gallery</a> for the <a href="http://www.megamenger.com">MegaMenger</a> project.</p>
 			</div>
 
-			<br>
-
-			<div class="icon" data-class="maths" data-slug="conway">
-				<a href="http://github.andrewt.net/conway" class="feature"><img src="icons/conway.png" /></a>
-			</div>
-
 		</section>
-
-		<section class="expandable maths tooltip" id="conway-tip"><div>
-			<a href="https://github.com/andrew-t/conway" class="ribbon github" title="View on Github"></a>
-				<p>I've built an infinitely large version of <a href="http://github.andrewt.net/conway" class="feature">Conway's Game Of Life</a> which you can play with.</p>
-		</div></section>
 
 		<section class="game parallax boxes">
 			<h1><a name="games">Games</a></h1>
@@ -237,6 +225,11 @@
 					<h1>Sierpinski Gasket</h1>
 					<p>
 						A simple demo which generates a <a href="http://github.andrewt.net/gasket" class="feature">Sierpinski Gasket</a> by moving points closer to a random vertex. Click to advance. <a href="https://github.com/andrew-t/gasket">Source code is available on Github</a>.
+					</p>
+				</section><section>
+					<h1>Conway&rsquo;s Game of Life</h1>
+					<p>
+						&hellip;is obviously not a fractal, but it fits better in this section than any of the others. I&rsquo;ve built an infinitely large version of <a href="http://github.andrewt.net/conway" class="feature">Conway's Game Of Life</a> which you can play with. <a href="https://github.com/andrew-t/conway">Source code is available on Github</a>.
 					</p>
 				</section>
 			</section>
