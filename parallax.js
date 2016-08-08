@@ -14,10 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	window.requestParallax = request;
 
 	function update() {
-		parallaxes.forEach(function (parallax) {
-			parallax.image.style.top = ((Tools.trueYPos(parallax.container) - window.scrollY) * -0.5) + 'px';
-		});
 		var scrollPos = Tools.getScrollPosition();
+		for (var i = parallaxes.length - 1; i >= 0; i--) {
+			var parallax = parallaxes[i];
+			parallax.image.style.transform = 'translate(0, ' + ((parallax.pos - scrollPos) * -0.5) + 'px)';
+		}
 		if (lastPosition != scrollPos) {
 			requestAnimationFrame(update);
 			lastPosition = scrollPos;
@@ -42,7 +43,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		!('ontouchstart' in window)) {
 		request();
 		window.addEventListener('scroll', request);
-		window.addEventListener('resize', request);
+		window.addEventListener('resize', function() {
+			getSizes();
+			request();
+		});
+		getSizes();
 		var oldScroll = window.scroll;
 		window.scroll = function(x, y) {
 			request();
@@ -51,4 +56,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	} else parallaxes.forEach(function(parallax) {
 		parallax.image.style.height = '100%';
 	});
+
+	function getSizes() {
+		parallaxes.forEach(function(parallax) {
+			parallax.pos = Tools.trueYPos(parallax.container);
+		});
+	}
 });
