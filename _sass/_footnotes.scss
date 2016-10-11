@@ -1,0 +1,65 @@
+.footnote {
+	display: inline;
+	color: $accent-1-light;
+	cursor: pointer;
+}
+
+.footnote-body {
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+	overflow: auto;
+	> div {
+		position: absolute;
+		top: 40vh;
+		left: calc(50vw - #{$line-length * 0.375rem});
+		width: #{$line-length * 0.75rem - 2rem};
+		padding: 1em;
+		box-shadow: 0 0 1em black;
+		background: $accent-1-light;
+		color: $text-on-accent-1-light;
+		opacity: 1;
+		> p {
+			&:first-child {
+				margin-top: 0;
+			}
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		&:after {
+			position: absolute;
+			content: ' ';
+			bottom: -40vw;
+			height: 1px;
+			width: 1px;
+			opacity: 0;
+			left: -1000vw;
+		}
+		transition:
+			opacity 300ms 0s,
+			top 300ms 0s ease-out;
+	}
+	transition:
+		background-color 300ms 1ms,
+		visibility 0s 0s;
+	&.hidden {
+		visibility: hidden;
+		background-color: rgba(0, 0, 0, 0);
+		transition:
+			background-color 300ms 0s,
+			visibility 0s 300ms;
+		> div {
+			top: 60vh;
+			opacity: 0;
+			transition:
+				opacity 300ms 0s,
+				top 300ms 0s ease-in;
+		}
+	}
+}

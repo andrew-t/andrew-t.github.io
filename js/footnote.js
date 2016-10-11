@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
 			body.innerHTML = element.getAttribute('data-html');
 			container.classList.remove('hidden');
 			e.preventDefault();
+			container.scrollTop = 0;
 		});
 	}
 

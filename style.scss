@@ -4,6 +4,7 @@
 @import "palette";
 @import "fonts";
 @import "responsive";
+@import "footnotes";
 
 $block-border-width: 1rem;
 
@@ -179,37 +180,5 @@ footer.banner {
 	color: $text;
 	> *:first-child {
 		margin-top: 0;
-	}
-}
-
-.footnote {
-	display: inline;
-}
-.footnote-body {
-	position: fixed;
-	z-index: 100;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background: rgba(0, 0, 0, 0.5);
-	z-index: 1000;
-	padding-bottom: 40vh;
-	overflow: auto;
-	> div {
-		position: absolute;
-		top: 40vh;
-		left: calc(50vw - #{$line-length * 0.375rem});
-		width: #{$line-length * 0.75rem - 2rem};
-		padding: 1em;
-		box-shadow: 0 0 1em black;
-		background: $accent-1-light;
-		color: $text-on-accent-1-light;
-	};
-	&.hidden {
-		&:before {
-			display: none;
-		}
-		display: none;
 	}
 }
