@@ -10,7 +10,7 @@ I am a Manchester-based senior software developer, currently working for <a href
 Hello!<span class="footnote" data-html="Goodbye!"></span>
 </div>
 
-I have a PhD in dental image analysis, as well as a Master&rsquo;s degree in Physics.
+I have a PhD in dental image analysis, as well as a Master’s degree in Physics.
 
 <div class="float-right"><p>
 This is my personal *website*, which I mostly use as a home for my various little projects.

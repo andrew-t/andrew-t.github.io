@@ -18,6 +18,7 @@
 	background: rgba(0, 0, 0, 0.5);
 	z-index: 1000;
 	overflow: auto;
+	perspective: 100vmax;
 	> div {
 		position: absolute;
 		top: 40vh;
@@ -27,7 +28,6 @@
 		box-shadow: 0 0 1em black;
 		background: $accent-1-light;
 		color: $text-on-accent-1-light;
-		opacity: 1;
 		> p {
 			&:first-child {
 				margin-top: 0;
@@ -45,9 +45,11 @@
 			opacity: 0;
 			left: -1000vw;
 		}
+		transform: none;
+		opacity: 1;
 		transition:
 			opacity 300ms 0s,
-			top 300ms 0s ease-out;
+			transform 300ms 0s ease-out;
 	}
 	transition:
 		background-color 300ms 1ms,
@@ -59,11 +61,11 @@
 			background-color 300ms 0s,
 			visibility 0s 300ms;
 		> div {
-			top: 60vh;
+			transform: rotateX(90deg) rotateZ(45deg);
 			opacity: 0;
 			transition:
 				opacity 300ms 0s,
-				top 300ms 0s ease-in;
+				transform 300ms 0s ease-in;
 		}
 	}
 }
