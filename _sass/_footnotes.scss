@@ -4,6 +4,10 @@
 	cursor: pointer;
 }
 
+.float-left .footnote {
+	color: $main-accent;
+}
+
 .footnote-body {
 	position: fixed;
 	z-index: 100;
