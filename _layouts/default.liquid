@@ -3,6 +3,7 @@
 <head>
 	<title>andrewt.net</title>
 	<link rel="stylesheet" type="text/css" href="/style.css">
+	<script type="text/javascript" src="/js/footnote.js"></script>
 </head>
 <body>
 	<header class="banner">
@@ -10,7 +11,7 @@
 		<nav class="tabs">
 			<ul>
 			{% for link in site.pages %}
-			{% if /^(\/[^\/]+){2}$/.match(link.url) or link.title %}
+			{% if link.title %}
 				<li><a href="{{ link.url }}" class="{% if link.url == page.url %}current{% endif %}">{{ link.title }}</a></li>
 			{% endif %}
 			{% endfor %}

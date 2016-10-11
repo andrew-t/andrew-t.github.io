@@ -1,6 +1,6 @@
 $line-length: 30;
 $min-font-size: 10px;
-$max-font-size: 30px;
+$max-font-size: 25px;
 // The proportion of the screen that can be text:
 $max-text-width: 0.9;
 
@@ -8,8 +8,7 @@ $wide-screen: $line-length * $max-font-size / $max-text-width;
 $narrow-screen: $line-length * $min-font-size / $max-text-width;
 
 $wide-margin: calc(50vw - #{$line-length * 1rem / 2});
-$narrow-margin: #{(1 - $max-text-width) * 50vw}
-;
+$narrow-margin: #{(1 - $max-text-width) * 50vw};
 
 /*/ Debugging:
 body:before {
