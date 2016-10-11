@@ -1,0 +1,75 @@
+$line-length: 30;
+$min-font-size: 10px;
+$max-font-size: 30px;
+// The proportion of the screen that can be text:
+$max-text-width: 0.9;
+
+$wide-screen: $line-length * $max-font-size / $max-text-width;
+$narrow-screen: $line-length * $min-font-size / $max-text-width;
+
+$wide-margin: calc(50vw - #{$line-length * 1rem / 2});
+$narrow-margin: #{(1 - $max-text-width) * 50vw}
+;
+
+/*/ Debugging:
+body:before {
+	position: absolute;
+	background: $background;
+	z-index: 100;
+	content: 'normal';
+	@media (min-width: $wide-screen) {
+		content: 'wide';
+	}
+	@media (max-width: $narrow-screen) {
+		content: 'narrow';
+	}
+} //*/
+
+html {
+	@media (max-width: $wide-screen) and (min-width: $narrow-screen) {
+		font-size: calc(#{$max-text-width * 100vw / $line-length});
+	}
+	@media (min-width: $wide-screen) {
+		font-size: $max-font-size;
+	}
+	@media (max-width: $narrow-screen) {
+		font-size: $min-font-size;
+	}
+}
+
+@mixin text-box {
+	padding-left: $wide-margin !important;
+	padding-right: $wide-margin !important;
+	@media (min-width: $wide-screen) {
+		padding-left: $wide-margin !important;
+		padding-right: $wide-margin !important;
+	}
+	@media (max-width: $narrow-screen) {
+		padding-left: $narrow-margin !important;
+		padding-right: $narrow-margin !important;
+	}
+}
+
+@mixin float-left {
+	float: left;
+
+	padding-left: $wide-margin !important;
+	@media (min-width: $wide-screen) {
+		padding-left: $wide-margin !important;
+	}
+	@media (max-width: $narrow-screen) {
+		padding-left: $narrow-margin !important;
+	}
+}
+
+@mixin float-right {
+	float: right;
+
+	padding-right: $wide-margin !important;
+	@media (min-width: $wide-screen) {
+		padding-right: $wide-margin !important;
+	}
+	@media (max-width: $narrow-screen) {
+		padding-right: $narrow-margin !important;
+	}
+}

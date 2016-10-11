@@ -1,0 +1,28 @@
+
+@font-face {
+	font-family: 'Taste';
+	src: url('../fonts/Taste Book.otf');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Taste';
+	src: url('../fonts/Taste Bold.otf');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@mixin bold-text {
+	font-weight: bold;
+	font-style: normal;
+	letter-spacing: 0.03em;
+}
+@mixin normal-text {
+	font-weight: normal;
+	font-style: normal;
+	letter-spacing: 0;
+}
+
+body {
+	font-family: 'Taste';
+}
