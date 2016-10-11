@@ -74,7 +74,7 @@ header {
 					background: $accent-1-light;
 					color: $text-on-accent-2-light;
 					text-decoration: none;
-					&.active, &:hover {
+					&.current, &:hover {
 						background: $accent-2-light;
 						padding: 1em;
 					}

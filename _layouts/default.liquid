@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>andrewt.net</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<header class="banner">
+		<h1><a href="http://www.andrewt.net">Andrew Taylor</a></h1>
+		<nav class="tabs">
+			<ul>
+			{% for link in site.pages %}
+			{% if /^(\/[^\/]+){2}$/.match(link.url) or link.title %}
+				<li><a href="{{ link.url }}" class="{% if link.url == page.url %}current{% endif %}">{{ link.title }}</a></li>
+			{% endif %}
+			{% endfor %}
+			</ul>
+		</nav>
+	</header>
+	<section>
+		{{content}}
+	</section>
+	<footer class="banner">
+		<p>
+			Copyright &copy; 2016 Andrew Taylor
+		</p>
+		<ul class="links">
+			<li><a href="http://twitter.com/Andrew_Taylor">Twitter</a></li>
+			<li><a href="mailto:andrew@andrewt.net">Email</a></li>
+			<li><a href="mailto:andrew@andrewt.net">GitHub</a></li>
+			<li><a href="mailto:andrew@andrewt.net">YouTube</a></li>
+			<li class="right"><a href="mailto:andrew@andrewt.net">Warp</a></li>
+		</ul>
+	</footer>
+</body>
+</html>
