@@ -49,7 +49,7 @@ section.cards {
 			height: 100%;
 			z-index: 1;
 			object-fit: cover;
-			transition: filter 500ms;
+			transition: filter 500ms, transform 500ms;
 		}
 		.text {
 			opacity: 0;
@@ -80,6 +80,7 @@ section.cards {
 		&:hover {
 			img {
 				filter: blur(0.6rem);
+				transform: scale(1.1);
 			}
 			.text {
 				opacity: 1;
