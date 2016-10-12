@@ -71,13 +71,15 @@ header {
 				display: inline-block;
 				> a {
 					@include normal-text;
-					padding: 1em 1em 0.5em 1em;
+					padding: calc(1em - #{$block-border-width / 2}) 1em 0.5em 1em;
 					background: $accent-1-light;
 					color: $text-on-accent-2-light;
 					text-decoration: none;
+					border-top: #{$block-border-width / 2} solid $main-accent;
 					&.current, &:hover {
+						border-color: $accent-2-light;
 						background: $accent-2-light;
-						padding: 1em;
+						padding-bottom: 1em;
 					}
 				}
 			}

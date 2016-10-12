@@ -3,8 +3,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
 	var container = document.createElement('div'),
 		body = document.createElement('div');
-	container.classList.add('hidden');
-	container.classList.add('footnote-body');
+	container.classList.add('hidden', 'footnote-body');
 	document.body.appendChild(container);
 	container.appendChild(body);
 
