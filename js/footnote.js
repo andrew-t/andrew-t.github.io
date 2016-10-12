@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
 	function addFootnote(element) {
 		element.appendChild(document.createTextNode('*'));
+		element.classList.add('active');
 		element.addEventListener('click', function(e) {
 			body.innerHTML = element.getAttribute('data-html');
 			container.classList.remove('hidden');

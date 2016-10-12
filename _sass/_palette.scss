@@ -8,7 +8,7 @@ $accent-1-light: hsla(183, 81%, 35%, 1);
 $accent-1-dark: hsla(195, 67%, 30%, 1);
 $accent-2-light: hsla(254, 29%, 35%, 1);
 $accent-2-dark: hsla(238, 35%, 19%, 1);
-$text-on-main-accent: #ffffff;
+$text-on-main-accent: $accent-2-light;
 $text-on-accent-1-light: #ffffff;
 $text-on-accent-1-dark: #ffffff;
 $text-on-accent-2-light: #ffffff;
