@@ -100,6 +100,13 @@ body > footer {
 		font-size: 2em;
 		margin-bottom: 0.5em;
 	}
+	> h2 {
+		@include text-box;
+		@include normal-text;
+		color: $accent-1-light;
+		font-size: 1.5em;
+		margin-bottom: 0.5em;
+	}
 	> p {
 		@include text-box;
 	}
@@ -128,6 +135,9 @@ a {
 	background: $accent-1-light;
 	color: $text-on-accent-1-light;
 	margin: 0 1em 1em 0;
+	a:hover {
+		color: $accent-2-light;
+	}
 }
 p .float-left {
 	margin: 0 1em 1em 1em;
@@ -181,9 +191,22 @@ ul.links {
 }
 
 footer.banner {
+	clear: both;
 	padding: 1em 0;
 	color: $text;
 	> *:first-child {
 		margin-top: 0;
 	}
+}
+
+.hero {
+	width: calc(100% - 1rem);
+	border: 0.5rem $accent-1-light solid;
+	clear: both;
+}
+
+.maths {
+	font-family: 'Times New Roman', 'Times', serif;
+	font-weight: normal;
+	font-style: italic;
 }

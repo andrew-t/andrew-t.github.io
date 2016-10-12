@@ -1,6 +1,6 @@
 $colors: $main-accent $accent-1-light $accent-2-light;
 $header-colors: $accent-2-light $main-accent $main-accent;
-$hover-colors: $accent-1-light $accent-2-light $main-accent;
+$hover-colors: $accent-1-light $accent-2-light $accent-1-light;
 $text-colors: $text-on-main-accent $text-on-accent-1-light $text-on-accent-2-light;
 
 section.cards {
@@ -9,7 +9,9 @@ section.cards {
 	flex-flow: row wrap;
 	align-items: stretch;
 	align-content: stretch;
-	margin: 0 -0.25rem;
+	position: relative;
+	left: -0.25rem;
+	width: #{$line-length * 1rem + 0.5rem};
 	> section {
 		flex: 10rem 1 1;
 		height: 12rem;
@@ -59,7 +61,6 @@ section.cards {
 			width: calc(100% - 2rem);
 			height: 100%;
 			z-index: 2;
-			background: rgba(255, 255, 255, 0.25);
 			transition: opacity 300ms;
 			padding: 0 1rem;
 			> * {
