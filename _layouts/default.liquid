@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>andrewt.net</title>
+	<title>andrewt.net{% if page.title %} | {{ page.title }}{% endif %}</title>
 	<link rel="stylesheet" type="text/css" href="/style.css">
 	<script type="text/javascript" src="/js/footnote.js"></script>
 </head>
@@ -18,9 +18,9 @@
 			</ul>
 		</nav>
 	</header>
-	<section>
+	<article>
 		{{content}}
-	</section>
+	</article>
 	<footer class="banner">
 		<p>
 			Copyright &copy; 2016 Andrew Taylor
@@ -29,8 +29,8 @@
 			<li><a href="http://twitter.com/Andrew_Taylor">Twitter</a></li>
 			<li><a href="mailto:andrew@andrewt.net">Email</a></li>
 			<li><a href="https://github.com/andrew-t">GitHub</a></li>
-			<!--li><a href="mailto:andrew@andrewt.net">YouTube</a></li-->
-			<li class="right"><a href="javascript:var strength=strength?strength*2:0.05,time=time||2,loop=loop||false,ivl,c=document.getElementsByTagName('*'),fn=function(){for(var i=0;i<c.length;++i){for(var m='',e=c[i],f=[e.offsetWidth,e.offsetHeight,100,1],x=0;x<4;++x)for(var y=0,t,s=strength/f[x];y<4;++y)m+=(m?', ':'')+((Math.random()*s-s/2)+(x==y));t='transform '+time+'s';e.style.transition=t;e.style.mozTransition='-moz-'+t;e.style.webkitTransition='-webkit-'+t;e.style.transform=e.style.mozTransform=e.style.webkitTransform='matrix3d('+m+')';}};if(ivl)clearInterval(ivl);if(loop)ivl=setInterval(fn,time*1000);fn();" title="Drag this into your bookmark bar and use it anywhere.">Warp</a></li>
+			<li><a href="https://www.youtube.com/channel/UCgTMAgV934hP5TMEB04LnWA">YouTube</a></li>
+			<li class="right"><a href="javascript:function fn(){var e,t,n,r,i,s,o,u;for(e=0;e<c.length;++e){t='',n=c[e],r=[n.offsetWidth,n.offsetHeight,100,1];for(i=0;i<4;++i){o=strength/r[i];for(u=0;u<4;++u)t+=(t?', ':'')+(Math.random()*o-o/2+(i==u))}s='transform '+time+'s',n.style.transition=s,n.style.mozTransition='-moz-'+s,n.style.webkitTransition='-webkit-'+s,n.style.transform=n.style.mozTransform=n.style.webkitTransform='matrix3d('+t+')'}}var ivl,strength,time,loop,c;strength=strength?strength*2:.05,time=time||2,loop=loop||!1,c=document.getElementsByTagName('*'),ivl&&clearInterval(ivl),loop&&(ivl=setInterval(fn,time*1e3)),fn()">Warp</a></li>
 		</ul>
 	</footer>
 </body>

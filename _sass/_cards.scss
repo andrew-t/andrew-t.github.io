@@ -1,0 +1,83 @@
+$colors: $main-accent $accent-1-light $accent-2-light;
+$hover-colors: $accent-1-light $accent-2-light $main-accent;
+
+section.cards {
+	@include text-box;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: stretch;
+	align-content: stretch;
+	margin: 0 -0.25rem;
+	> section {
+		flex: 10rem 1 1;
+		height: 12rem;
+		overflow: hidden;
+		&.featured {
+			flex-basis: 30rem;
+		}
+		border: 0.5rem $main-accent solid;
+		@for $i from 1 through 20 {
+			$n: random(3);
+			$col: nth($colors, $n);
+			&:nth-child(#{$i}) {
+				border-color: $col;
+				.text h1, .text a {
+					color: $col;
+					@if $col == $main-accent {
+						text-shadow: 0 0 0.5rem black;
+					}
+				}
+				.text a:hover {
+					color: nth($hover-colors, $n);
+				}
+			}
+		}
+		margin: 0.25rem;
+		position: relative;
+		cursor: pointer;
+		img {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+			object-fit: cover;
+			transition: filter 500ms;
+		}
+		.text {
+			opacity: 0;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: calc(100% - 2rem);
+			height: 100%;
+			z-index: 2;
+			background: rgba(255, 255, 255, 0.25);
+			transition: opacity 300ms;
+			padding: 0 1rem;
+			> * {
+				transform: translate(0, 2rem);
+				transition: transform 300ms ease-out;
+			}
+			overflow: auto;
+			h1 {
+				font-size: 1.5em;
+				font-weight: normal;
+				margin: 1rem 0;
+			}
+		}
+		&:hover {
+			img {
+				filter: blur(0.6rem);
+			}
+			.text {
+				opacity: 1;
+				> * {
+					transform: none;
+					transition: transform 300ms ease-in;
+				}
+			}
+		}
+	}
+}
