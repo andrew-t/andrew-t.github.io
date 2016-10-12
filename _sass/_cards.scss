@@ -14,7 +14,7 @@ section.cards {
 	width: #{$line-length * 1rem + 0.5rem};
 	> section {
 		flex: 10rem 1 1;
-		height: 12rem;
+		height: 15rem;
 		overflow: hidden;
 		&.featured {
 			flex-basis: 30rem;

@@ -103,15 +103,37 @@ body > footer {
 	> h2 {
 		@include text-box;
 		@include normal-text;
-		color: $accent-1-light;
+		color: $accent-2-light;
 		font-size: 1.5em;
 		margin-bottom: 0.5em;
 	}
 	> p {
 		@include text-box;
 	}
+	> ul:not(.links),
+	> ol {
+		@include indented-text-box;
+	}
+	> blockquote {
+		@include indented-text-box;
+		background: $accent-2-light;
+		color: $text-on-accent-2-light;
+		text-align: justify;
+		> p:first-child {
+			margin-top: 0;
+		}
+		> p:last-child {
+			margin-bottom: 0;
+		}
+		a {
+			color: $main-accent;
+			&:hover {
+				color: $accent-1-light;
+			}
+		}
+	}
 }
-p {
+p, ul, ol {
 	@include normal-text;
 	text-align: justify;
 	line-height: 1.3;
@@ -121,11 +143,11 @@ p {
 a {
 	@include bold-text;
 	cursor: pointer;
-	color: $main-accent;
+	color: $accent-1-light;
 	text-decoration: none;
 
 	&:hover {
-		color: $accent-1-light;
+		color: $accent-2-light;
 		text-decoration: underline;
 	}
 }
@@ -135,8 +157,11 @@ a {
 	background: $accent-1-light;
 	color: $text-on-accent-1-light;
 	margin: 0 1em 1em 0;
-	a:hover {
-		color: $accent-2-light;
+	a {
+		color: $main-accent;
+		&:hover {
+			color: $accent-2-light;
+		}
 	}
 }
 p .float-left {
@@ -148,6 +173,12 @@ p .float-left {
 	background: $accent-2-light;
 	color: $text-on-accent-2-light;
 	margin: 0 0 1em 1em;
+	a {
+		color: $main-accent;
+		&:hover {
+			color: $accent-1-light;
+		}
+	}
 }
 p .float-right {
 	margin: 1em 0 1em 1em;
@@ -209,4 +240,11 @@ footer.banner {
 	font-family: 'Times New Roman', 'Times', serif;
 	font-weight: normal;
 	font-style: italic;
+}
+
+p.centred {
+	img {
+		max-width: 100%;
+	}
+	text-align: center;
 }

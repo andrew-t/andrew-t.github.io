@@ -12,7 +12,7 @@ Most months I go to [MathsJam](http://www.mathsjam.com), and most years I’m at
 
 I am a big fan of the Mandelbrot Set, and have built [this tool so that you can explore it](http://github.andrewt.net/mandelbrot) (inlined below), and written [this article about how to find <span class="maths">π</span> in there](http://aperiodical.com/2015/03/mandelbrot-pi/) (which uses my exploring gadget).
 
-<p><iframe class="hero" style="width: 100%; height: 15rem" src="http://github.andrewt.net/mandelbrot" frameborder="0" allowfullscreen></iframe></p>
+<p><iframe class="hero" style="width: 100%; height: 20rem" src="http://github.andrewt.net/mandelbrot" frameborder="0" allowfullscreen></iframe></p>
 
 <div class="float-right"><p>If you are a fan of maths nonsense, you should also check out the <a href="/domputer">Domino Computer</a>.</p></div>
 
