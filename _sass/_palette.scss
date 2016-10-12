@@ -8,11 +8,18 @@ $accent-1-light: hsla(183, 81%, 35%, 1);
 $accent-1-dark: hsla(195, 67%, 30%, 1);
 $accent-2-light: hsla(254, 29%, 35%, 1);
 $accent-2-dark: hsla(238, 35%, 19%, 1);
-$text-on-main-accent: $accent-2-light;
+
+$text-on-main-accent: #000000;
 $text-on-accent-1-light: #ffffff;
 $text-on-accent-1-dark: #ffffff;
 $text-on-accent-2-light: #ffffff;
 $text-on-accent-2-dark: #ffffff;
+
+$header-on-main-accent: $accent-2-light;
+$header-on-accent-1-light: #main-accent;
+$header-on-accent-1-dark: #main-accent;
+$header-on-accent-2-light: #main-accent;
+$header-on-accent-2-dark: #main-accent;
 
 body {
 	background: $background;

@@ -50,7 +50,7 @@ body {
 	@include block;
 	h1 {
 		font-size: 4em;
-		color: $text-on-main-accent;
+		color: $header-on-main-accent;
 		margin: 0;
 		a {
 			@include normal-text;
@@ -115,9 +115,11 @@ a {
 	@include bold-text;
 	cursor: pointer;
 	color: $main-accent;
+	text-decoration: none;
 
 	&:hover {
 		color: $accent-1-light;
+		text-decoration: underline;
 	}
 }
 

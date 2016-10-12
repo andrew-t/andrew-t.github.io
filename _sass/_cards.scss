@@ -1,5 +1,7 @@
 $colors: $main-accent $accent-1-light $accent-2-light;
+$header-colors: $accent-2-light $main-accent $main-accent;
 $hover-colors: $accent-1-light $accent-2-light $main-accent;
+$text-colors: $text-on-main-accent $text-on-accent-1-light $text-on-accent-2-light;
 
 section.cards {
 	@include text-box;
@@ -19,16 +21,20 @@ section.cards {
 		@for $i from 1 through 20 {
 			$n: random(3);
 			$col: nth($colors, $n);
+			$hov: nth($hover-colors, $n);
+			$head: nth($header-colors, $n);
+			$text: nth($text-colors, $n);
 			&:nth-child(#{$i}) {
 				border-color: $col;
-				.text h1, .text a {
-					color: $col;
-					@if $col == $main-accent {
-						text-shadow: 0 0 0.5rem black;
+				color: $text;
+				.text {
+					background: adjust-color($col, $alpha: -0.5);
+					h1, a {
+						color: $head;
 					}
-				}
-				.text a:hover {
-					color: nth($hover-colors, $n);
+					a:hover {
+						color: $hov;
+					}
 				}
 			}
 		}
