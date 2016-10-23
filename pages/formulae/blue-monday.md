@@ -1,6 +1,6 @@
 ---
 title: Formulæ
-permalink: /formulae/index.html
+permalink: /formulae/blue-monday/index.html
 ---
 
 # Stupid Formulæ
