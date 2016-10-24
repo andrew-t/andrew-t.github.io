@@ -20,9 +20,13 @@ Dr Helen Pilcher, a neuroscientist (according to the Telegraph) whored her name 
 
 ## [The Perfect Joke](http://www.telegraph.co.uk/news/uknews/1464386/Scientists-are-serious-about-having-a-laugh.html)
 
-$$ x = (fl + n^o)/p $$
+$$ x = \frac{fl + n^o}{p} $$
 
-In this case, n represents "the amount someone falls over", and is raised to the power of "the "Ouch" factor". It won't surprise you to learn that this is the work of the same Helen Pilcher, although this time helped by comedian Timandra Harkness. It should be some measure of Harkness' fame that I wouldn't like to guess what gender the name Timandra indicates. To their very limited credit, the telegraph article does include rants from Jimmy Carr, Bernard Manning and Ruby Wax explaining that the formula was stupid (in their own obnoxious ways). Also Nicholas Parsons, but he's not obnoxious. Why was this in the news? "The Comedy Research Project, a live stage show featuring Helen Pilcher and Timandra Harkness, will be performed at the Science Museum's Dana Centre on June 15 and 22 [2006]." I bet that was a fucking blast.
+In this case, $n$ represents "the amount someone falls over", and is raised to the power of "the "Ouch" factor". It won't surprise you to learn that this is the work of the same Helen Pilcher, although this time helped by comedian Timandra Harkness, whom I've since met, and my understanding is that she isn't a big fan of these equations either.
+
+But if this one is a satire, it has somewhat backfired, since the Telegraph, being serious investigative journalists, have asked some comedians what they think of the formula. Jimmy Carr, Bernard Manning and Ruby Wax all said it was stupid in their own obnoxious ways, and Nicholas Parsons said much the same thing but more politely.
+
+Why was this in the news? "The Comedy Research Project, a live stage show featuring Helen Pilcher and Timandra Harkness, will be performed at the Science Museum's Dana Centre on June 15 and 22 [2006]."
 
 
 ## [The Perfect Day](http://www.telegraph.co.uk/news/newstopics/howaboutthat/2158104/Today-is-the-happiest-day-of-the-year-according-to-Cliff-Arnall%27s-maths-formula.html)
