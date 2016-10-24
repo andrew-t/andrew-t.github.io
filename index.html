@@ -2,11 +2,16 @@
 layout: default
 ---
 
+<script>
+	if (/^\?page=/.test(location.search))
+		location = '/' + location.search.substr(6);
+</script>
+
 <section class="cards">
 
 	<section class="featured">
 		<a href="/maths">
-			<img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mandel_zoom_11_satellite_double_spiral.jpg" alt="Mandelbrot Set">
+			<img src="/img/mandelbrot.png" alt="Mandelbrot Set">
 		</a>
 		<div class="text">
 			<h1><a href="/maths">Maths</a></h1>
@@ -16,7 +21,7 @@ layout: default
 
 	<section>
 		<a href="/maths/domputer">
-			<img src="http://github.andrewt.net/thumbnails/domputer.jpg" alt="Domino Computer">
+			<img src="/img/domputer.jpg" alt="Domino Computer">
 		</a>
 		<div class="text">
 			<h1><a href="/maths/domputer">Domino Computer</a></h1>
@@ -25,13 +30,23 @@ layout: default
 	</section>
 
 	<section>
-		<a href="http://github.andrewt.net/megamenger">
-			<img src="http://github.andrewt.net/thumbnails/menger.png" alt="MegaMenger">
+		<a href="http://github.andrewt.net/menger">
+			<img src="img/menger.png" alt="MegaMenger">
 		</a>
 		<div class="text">
 			<h1><a href="http://github.andrewt.net/menger">MegaMenger</a></h1>
 			<p>In 2014, <a href="http://www.standupmaths.com">Matt Parker</a> and <a href="http://www.twitter.com/mathgrrl">Laura Taalman</a> ran the <a href="http://megamenger.com/">the MegaMenger project</a>, with the aim of building a giant Menger sponge from card.</p>
 			<p>I built some of the Manchester build, as well as <a href="http://github.andrewt.net/menger">the image gallery for the project</a>, which may be the world’s first 2.7D website.</p>
+		</div>
+	</section>
+
+	<section>
+		<a href="/formulae">
+			<img src="/img/formulae.jpg" alt="Stupid Formulaæ">
+		</a>
+		<div class="text">
+			<h1><a href="/formulae">Stupid Formulaæ</a></h1>
+			<p>I get frustrated by the stupid formulæ used by marketing companies to generate nonsense ‘news’ reports about their clients’ products. So I did some research.</p>
 		</div>
 	</section>
 
@@ -48,7 +63,7 @@ layout: default
 
 	<section>
 		<a href="/twitterbots">
-			<img src="http://github.andrewt.net/thumbnails/fish.png" alt="The Fish Exist logo">
+			<img src="/img/fish.png" alt="The Fish Exist logo">
 		</a>
 		<div class="text">
 			<h1><a href="/twitterbots">Twitterbots</a></h1>
@@ -58,7 +73,7 @@ layout: default
 
 	<section>
 		<a href="/games">
-			<img src="http://github.andrewt.net/thumbnails/pokemon.png" alt="A still from Monsters">
+			<img src="/img/games/pokemon.png" alt="A still from Monsters">
 		</a>
 		<div class="text">
 			<h1><a href="/games">Games</a></h1>
@@ -68,11 +83,61 @@ layout: default
 
 	<section class="featured">
 		<a href="/megapixel">
-			<img src="http://github.andrewt.net/thumbnails/mosaic.png" alt="A grid of red, green and blue cells with values in">
+			<img src="/img/mosaic.png" alt="A grid of red, green and blue cells with values in">
 		</a>
 		<div class="text">
 			<h1><a href="/megapixel">Megapixel</a></h1>
 			<p>In 2016, I helped <a href="http://www.katiesteckles.co.uk/">Katie Steckles</a> and <a href="http://www.standupmaths.com">Matt Parker</a> build the <a href="http://www.manchestermegapixel.com/">Megapixel</a>, a digital display made out of transparent plastic and red, green and blue OHP markers.</p>
+		</div>
+	</section>
+
+	<section>
+		<a href="http://www.gmss.uk">
+			<img src="/img/gmss.png" alt="Manchester Skeptics logo">
+		</a>
+		<div class="text">
+			<h1><a href="http://www.gmss.uk">Greater Manchester Skeptics Society</a></h1>
+			<p>I am a long-time member of the <a href="http://www.gmss.uk">Greater Manchester Skeptics Society</a>, and I also built their website, based on the logo design by policial cartoonist <a href="http://polyp.org.uk/">Polyp</a>.</p>
+		</div>
+	</section>
+
+	<section>
+		<a href="/cycle-mcr/">
+			<img src="/img/cycle-mcr.png" alt="A map of Manchester">
+		</a>
+		<div class="text">
+			<h1><a href="/cycle-mcr/">Cycle Map of Manchester</a></h1>
+			<p>TfGM’s <a href="http://tfgm.pindarcreative.co.uk/maps/default.asp">online cycle maps of Manchester</a> doesn’t support GPS and isn’t super easy to use, so I made <a href="/cycle-mcr/">my own</a>. There’s also <a href="https://andrew-tls.github.io/cycle-mcr/">a TLS version</a> which should let you use GPS, but can’t always load all the dependencies.</p>
+		</div>
+	</section>
+
+	<section>
+		<a href="/apps">
+			<img src="/img/command-line.png" alt="A QR code on the command line">
+		</a>
+		<div class="text">
+			<h1><a href="/apps">Command-line Apps</a></h1>
+			<p>A few command-line apps I built, mostly for myself.</p>
+		</div>
+	</section>
+
+	<section>
+		<a href="/charm">
+			<img src="/img/charm.png" alt="A Unicode character">
+		</a>
+		<div class="text">
+			<h1><a href="/charm">Charm</a></h1>
+			<p><a href="/charm">Charm</a> is a searchable version of the Unicode table. It is also available as <a href="https://play.google.com/store/apps/details?id=net.andrewt.charm">an Android app</a>.</p>
+		</div>
+	</section>
+
+	<section>
+		<a href="https://play.google.com/store/apps/developer?id=Andrew+Taylor">
+			<img src="/img/apps.png" alt="Android UI">
+		</a>
+		<div class="text">
+			<h1><a href="https://play.google.com/store/apps/developer?id=Andrew+Taylor">Android Apps</a></h1>
+			<p>I have a few <a href="https://play.google.com/store/apps/developer?id=Andrew+Taylor">apps in the Google Play store</a>.</p>
 		</div>
 	</section>
 

@@ -1,6 +1,6 @@
-$line-length: 30;
+$line-length: 40;
 $min-font-size: 10px;
-$max-font-size: 25px;
+$max-font-size: 20px;
 // The proportion of the screen that can be text:
 $max-text-width: 0.9;
 
@@ -46,6 +46,20 @@ html {
 	@media (max-width: $narrow-screen) {
 		padding-left: $narrow-margin !important;
 		padding-right: $narrow-margin !important;
+	}
+}
+
+@mixin indented-text-box {
+	margin-left: $wide-margin !important;
+	margin-right: $wide-margin !important;
+	padding: 0.5em 2em;
+	@media (min-width: $wide-screen) {
+		margin-left: $wide-margin !important;
+		margin-right: $wide-margin !important;
+	}
+	@media (max-width: $narrow-screen) {
+		margin-left: $narrow-margin !important;
+		margin-right: $narrow-margin !important;
 	}
 }
 

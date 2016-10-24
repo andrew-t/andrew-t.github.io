@@ -1,28 +1,27 @@
-
+// We use a fancy and distinctive font for headers.
 @font-face {
 	font-family: 'Taste';
 	src: url('../fonts/Taste Book.otf');
 	font-weight: normal;
 	font-style: normal;
 }
-@font-face {
+h1, h2 {
 	font-family: 'Taste';
-	src: url('../fonts/Taste Bold.otf');
-	font-weight: bold;
-	font-style: normal;
+}
+
+// We use a widely-compatible and readable font with loads of glyphs for the body text.
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,700';
+
+body {
+	font-family: 'Open Sans', 'Avenir', 'Product Sans', 'Helvetica', 'Arial', sans-serif;
 }
 
 @mixin bold-text {
-	font-weight: bold;
+	font-weight: 700;
 	font-style: normal;
-	letter-spacing: 0.03em;
 }
 @mixin normal-text {
-	font-weight: normal;
+	font-weight: 400;
 	font-style: normal;
 	letter-spacing: 0;
-}
-
-body {
-	font-family: 'Taste';
 }
