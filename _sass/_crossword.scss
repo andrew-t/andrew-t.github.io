@@ -15,7 +15,36 @@
 		vertical-align: top;
 		padding: 0;
 		margin: 0;
+
+		position: relative;
+		.value, &:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: block;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		&:before {
+			color: #aaf;
+		}
 	}
+
+	&:focus {
+		outline: none;
+		.selected {
+			background: #ccf;
+		}
+	}
+}
+
+.crossword.across:focus .selected:before {
+	content: '→';
+}
+.crossword.down:focus .selected:before {
+	content: '↓';
 }
 
 @for $i from 5 through 25 {
@@ -73,6 +102,10 @@ ul.clues {
 			}
 			> .crossword[height="#{$i}"] td {
 				height: calc(#{100vh / $i} - 1px);
+				> .value, &:before {
+					line-height: calc(#{100vh / $i} - 1px);
+					font-size: calc(#{90vh / $i} - 1px);
+				}
 			}
 		}
 	}
