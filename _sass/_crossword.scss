@@ -39,3 +39,41 @@ ul.clues {
 		}
 	}
 }
+
+@media (min-width: 800px) and (min-aspect-ratio: 3/2) {
+	article > *,
+	header > *,
+	footer.banner > * {
+		padding-left: calc(100vh + 1rem) !important;
+		padding-right: 1em !important;
+	}
+	article {
+		> ul {
+			margin-left: 1em !important;
+			margin-right: 1em !important;
+			li {
+				text-align: left;
+			}
+		}
+		> .crossword {
+			position: fixed;
+			z-index: 5;
+			background: white;
+			left: 0;
+			top: 0;
+			width: 100vh;
+			height: 100vh;
+			td {
+				font-size: 2vh;
+			}
+		}
+		@for $i from 5 through 25 {
+			> .crossword[width="#{$i}"] td {
+				width: calc(#{100vh / $i} - 1px);
+			}
+			> .crossword[height="#{$i}"] td {
+				height: calc(#{100vh / $i} - 1px);
+			}
+		}
+	}
+}

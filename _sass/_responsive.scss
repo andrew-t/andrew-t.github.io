@@ -37,15 +37,15 @@ html {
 }
 
 @mixin text-box {
-	padding-left: $wide-margin !important;
-	padding-right: $wide-margin !important;
+	padding-left: $wide-margin;
+	padding-right: $wide-margin;
 	@media (min-width: $wide-screen) {
-		padding-left: $wide-margin !important;
-		padding-right: $wide-margin !important;
+		padding-left: $wide-margin;
+		padding-right: $wide-margin;
 	}
 	@media (max-width: $narrow-screen) {
-		padding-left: $narrow-margin !important;
-		padding-right: $narrow-margin !important;
+		padding-left: $narrow-margin;
+		padding-right: $narrow-margin;
 	}
 }
 
@@ -64,16 +64,16 @@ html {
 }
 
 @mixin indented-text-box {
-	margin-left: $wide-margin !important;
-	margin-right: $wide-margin !important;
+	margin-left: $wide-margin;
+	margin-right: $wide-margin;
 	padding: 0.5em 2em;
 	@media (min-width: $wide-screen) {
-		margin-left: $wide-margin !important;
-		margin-right: $wide-margin !important;
+		margin-left: $wide-margin;
+		margin-right: $wide-margin;
 	}
 	@media (max-width: $narrow-screen) {
-		margin-left: $narrow-margin !important;
-		margin-right: $narrow-margin !important;
+		margin-left: $narrow-margin;
+		margin-right: $narrow-margin;
 	}
 }
 

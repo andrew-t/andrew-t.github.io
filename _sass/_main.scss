@@ -1,0 +1,241 @@
+$block-border-width: 1rem;
+
+@mixin block {
+	background: $main-accent;
+	color: $text-on-main-accent;
+	position: relative;
+	margin: #{2 * $block-border-width} 0;
+	padding: $block-border-width 0;
+	border-width: $block-border-width 0;
+	border-color: transparent;
+	&:before, &:after {
+		position: absolute;
+		display: block;
+		content: ' ';
+		top: -$block-border-width;
+		bottom: -$block-border-width;
+		border-width: $block-border-width 0;
+		border-style: solid;
+		left: 0;
+		right: 0;
+	}
+	&:before {
+		z-index: -1;
+		border-color: $accent-1-light;
+		top: #{-$block-border-width * .5};
+		bottom: #{-$block-border-width * .5};
+	}
+	&:after {
+		z-index: -2;
+		border-color: $accent-2-light;
+		top: -$block-border-width;
+		bottom: -$block-border-width;
+	}
+}
+
+body {
+	margin: 1em 0;
+}
+
+.banner {
+	@include block;
+	h1 {
+		font-size: 4em;
+		color: $header-on-main-accent;
+		margin: 0;
+		a {
+			@include normal-text;
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+}
+
+header {
+	.tabs {
+		margin: 1.5em 0 0 0;
+		@include text-box;
+		> ul {
+			list-style: none;
+			padding: 0;
+			margin-bottom: -1em;
+			> li {
+				display: inline-block;
+				> a {
+					@include normal-text;
+					padding: calc(1em - #{$block-border-width / 2}) 1em 0.5em 1em;
+					background: $accent-1-light;
+					color: $text-on-accent-2-light;
+					text-decoration: none;
+					border-top: #{$block-border-width / 2} solid $main-accent;
+					&.current, &:hover {
+						border-color: $accent-2-light;
+						background: $accent-2-light;
+						padding-bottom: 1em;
+					}
+				}
+			}
+		}
+	}
+}
+
+body,
+body > section,
+body > article,
+body > header,
+body > footer {
+	> h1 {
+		@include text-box;
+		@include normal-text;
+		color: $accent-2-light;
+		font-size: 2em;
+		margin-bottom: 0.5em;
+	}
+	> h2 {
+		@include text-box;
+		@include normal-text;
+		color: $accent-2-light;
+		font-size: 1.5em;
+		margin-bottom: 0.5em;
+	}
+	> p {
+		@include text-box;
+	}
+	> ul:not(.links),
+	> ol {
+		@include indented-text-box;
+	}
+	> blockquote {
+		@include indented-text-box;
+		background: $accent-2-light;
+		color: $text-on-accent-2-light;
+		text-align: justify;
+		> p:first-child {
+			margin-top: 0;
+		}
+		> p:last-child {
+			margin-bottom: 0;
+		}
+		a {
+			color: $main-accent;
+			&:hover {
+				color: $accent-1-light;
+			}
+		}
+	}
+}
+p, ul, ol {
+	@include normal-text;
+	text-align: justify;
+	line-height: 1.3;
+	margin: 1em 0;
+}
+
+a {
+	@include bold-text;
+	cursor: pointer;
+	color: $accent-1-light;
+	text-decoration: none;
+
+	&:hover {
+		color: $accent-2-light;
+		text-decoration: underline;
+	}
+}
+
+.float-left {
+	@include float-left;
+	background: $accent-1-light;
+	color: $text-on-accent-1-light;
+	margin: 0 1em 1em 0;
+	a {
+		color: $main-accent;
+		&:hover {
+			color: $accent-2-light;
+		}
+	}
+}
+p .float-left {
+	margin: 0 1em 1em 1em;
+}
+
+.float-right {
+	@include float-right;
+	background: $accent-2-light;
+	color: $text-on-accent-2-light;
+	margin: 0 0 1em 1em;
+	a {
+		color: $main-accent;
+		&:hover {
+			color: $accent-1-light;
+		}
+	}
+}
+p .float-right {
+	margin: 1em 0 1em 1em;
+}
+
+.float-left, .float-right {
+	padding: 1em;
+	max-width: #{$line-length * 0.5rem};
+	p:first-child {
+		margin-top: 0;
+	}
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
+
+ul.links {
+	@include text-box;
+	list-style: none;
+	margin: 0;
+	> li {
+		display: inline;
+		> a {
+			@include normal-text;
+			color: $accent-2-light;
+			text-decoration: none;
+			&:hover {
+				color: $accent-1-light;
+			}
+		}
+		&:nth-child(n + 2):before {
+			content: ' | ';
+		}
+		&.right {
+			float: right;
+			&:before {
+				display: none;
+			}
+		}
+	}
+}
+
+footer.banner {
+	clear: both;
+	padding: 1em 0;
+	color: $text;
+	> *:first-child {
+		margin-top: 0;
+	}
+}
+
+.hero {
+	width: calc(100% - 1rem);
+	border: 0.5rem $accent-1-light solid;
+	clear: both;
+}
+
+.maths {
+	font-family: 'Times New Roman', 'Times', serif;
+	font-weight: normal;
+	font-style: italic;
+}
+
+p.centred {
+	img {
+		max-width: 100%;
+	}
+	text-align: center;
+}
