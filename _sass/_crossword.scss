@@ -29,9 +29,13 @@
 
 ul.clues {
 	list-style: none;
-	.clue-number {
-		&:after {
-			content: '.';
+	li {
+		margin-left: 2em;
+		text-indent: -2em;
+		.clue-number {
+			&:after {
+				content: '.';
+			}
 		}
 	}
 }
