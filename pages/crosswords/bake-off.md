@@ -97,7 +97,7 @@ Brilliant Sue Perkins, cut off (5)
 </li>
 
 <li><span class="clue-number">4</span>
-Fuming sulphuric acid after 50 becomes 500 for an arena (5)
+Hesitation after poem to be sung in concert hall (5)
 </li>
 
 <li><span class="clue-number">5</span>
