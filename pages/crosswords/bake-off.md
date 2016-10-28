@@ -36,7 +36,7 @@ Fruit-cakes end up here, except on the other side (5)
 </li>
 
 <li><span class="clue-number">12</span>
-I’m outside countries in European Union — another lost 11d institution (3, 3, 3)
+I’m outside countries in European Union, and they present a competition (3, 3, 3)
 </li>
 
 <li><span class="clue-number">14</span>
