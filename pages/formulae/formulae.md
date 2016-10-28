@@ -1,9 +1,8 @@
 ---
-title: Formulæ
+title: Stupid Formulæ
 permalink: /formulae/index.html
+addTitle: true
 ---
-
-# Stupid Formulæ
 
 <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['&#92;(','&#92;)']]}});</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 

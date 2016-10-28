@@ -2,9 +2,8 @@
 title: About
 permalink: /about/index.html
 tab: true
+addTitle: true
 ---
-
-# About
 
 I am a Manchester-based senior software developer, currently working for <a href="http://www.bbc.co.uk">the BBC</a> in MediaCityUK, in Salford Quays. I enjoy making Javascript do mathematics.
 

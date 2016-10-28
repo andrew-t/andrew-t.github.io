@@ -1,9 +1,8 @@
 ---
-title: Domino Computer
+title: The Domino Computer
 permalink: /maths/domputer/index.html
+addTitle: true
 ---
-
-# The Domino Computer
 
 As part of the [Manchester Science Festival](http://www.manchestersciencefestival.com/) 2012, [Matt Parker](http://www.standupmaths.com) decided to demonstrate how computers worked by building one out of dominoes.
 

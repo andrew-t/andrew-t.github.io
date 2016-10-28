@@ -20,6 +20,9 @@
 		</nav>
 	</header>
 	<article>
+		{% if page.addTitle %}
+		<h1 class="page-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+		{% endif %}
 		{{content}}
 	</article>
 	<footer class="banner">

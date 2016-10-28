@@ -1,9 +1,8 @@
 ---
-title: Megapixel
+title: The Megapixel
 permalink: /megapixel/index.html
+addTitle: true
 ---
-
-# The Megapixel
 
 As part of the [Manchester Science Festival](http://www.manchestersciencefestival.com/) 2016, [Katie Steckles](http://www.katiesteckles.co.uk) decided to build a monitor for the [domino computer](/maths/domputer). Or rather, to demonstrate how a computer monitor builds up an image from red, green and blue pixels by making a giant one from pens. This was [the Megapixel project](http://www.manchestermegapixel.com/).
 
