@@ -49,6 +49,20 @@ html {
 	}
 }
 
+@mixin text-sized-block {
+	position: relative;
+	left: $wide-margin;
+	width: calc(100% - 2 * #{$wide-margin});
+	@media (min-width: $wide-screen) {
+		left: $wide-margin;
+		width: calc(100% - 2 * #{$wide-margin});
+	}
+	@media (max-width: $narrow-screen) {
+		left: $narrow-margin;
+		width: calc(100% - 2 * #{$narrow-margin});
+	}
+}
+
 @mixin indented-text-box {
 	margin-left: $wide-margin !important;
 	margin-right: $wide-margin !important;
