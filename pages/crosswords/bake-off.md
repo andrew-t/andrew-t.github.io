@@ -16,7 +16,7 @@ Forcibly remove some croustade (4)
 </li>
 
 <li><span class="clue-number">3</span>
-What 5a 22a 11d 17a is all about?
+What 5a 22a 11d 17a is all about? (5)
 </li>
 
 <li><span class="clue-number">5, 22, 11d, 17</span>
@@ -102,7 +102,7 @@ Fuming sulphuric acid after 50 becomes 500 for an arena (5)
 </li>
 
 <li><span class="clue-number">5</span>
-Removing drug, thus trifle is ruined — in need of 22d?
+Removing drug, thus trifle is ruined — in need of 22d? (9)
 </li>
 
 <li><span class="clue-number">6</span>
@@ -138,7 +138,7 @@ Mustering friend in arena (8)
 </li>
 
 <li><span class="clue-number">17</span>
-Arses! At first BBC One tried to offer miserly sum.
+Arses! At first BBC One tried to offer miserly sum. (7)
 </li>
 
 <li><span class="clue-number">21</span>
@@ -158,7 +158,7 @@ Freeze and decorate cake (3)
 </li>
 
 <li><span class="clue-number">26</span>
-Had understood Game of Thrones?
+Had understood Game of Thrones? (3)
 </li>
 
 </ul>
