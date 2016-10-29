@@ -87,9 +87,15 @@ document.addEventListener('DOMContentLoaded', function() {
 				draw(selected);
 				break;
 			default: // typing
-				if (e.key.length != 1)
+				var character = '';
+				if (window.cxwCodes)
+					character = window.cxwCodes[e.keyCode.toString()] || '';
+				if (!character && e.key.length == 1)
+					character = e.key;
+				if (!character.length)
+					// do not prevent default
 					return;
-				selected.value = e.key;
+				selected.value = character;
 				draw(selected);
 				advance(1);
 				break;
