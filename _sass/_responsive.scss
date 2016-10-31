@@ -62,6 +62,9 @@ html {
 		width: calc(100% - 2 * #{$narrow-margin});
 	}
 }
+.text-width { 
+	@include text-sized-block;
+}
 
 @mixin indented-text-box {
 	margin-left: $wide-margin;

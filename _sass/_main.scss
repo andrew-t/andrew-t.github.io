@@ -112,6 +112,19 @@ body > footer {
 	> ol {
 		@include indented-text-box;
 	}
+	> .banner-section {
+		@include text-box;
+		background: $accent-2-light;
+		color: $text-on-accent-2-light;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+		a {
+			color: $main-accent;
+			&:hover {
+				color: $accent-1-light
+			}
+		}
+	}
 	> blockquote {
 		@include indented-text-box;
 		background: $accent-2-light;
@@ -129,17 +142,22 @@ body > footer {
 			left: 2em;
 		}
 		text-align: justify;
-		> p:first-child {
-			margin-top: 0;
-		}
-		> p:last-child {
-			margin-bottom: 0;
-		}
 		a {
 			color: $main-accent;
 			&:hover {
 				color: $accent-1-light;
 			}
+		}
+	}
+	> * {
+		> p:first-child {
+			margin-top: 0;
+		}
+		> img + p {
+			margin-top: 0;
+		}
+		> p:last-child {
+			margin-bottom: 0;
 		}
 	}
 }

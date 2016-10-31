@@ -30,7 +30,7 @@ In 8-bit, there are 256 shades of grey, defined by RGB values from 0 to 255. But
 The maths used for this is deliberately simple. It isn't designed to exactly mimic human vision — it's just there to save data, and to be easy to calculate and combine — so we use a power law:
 
 $$
-\text{Amount of light} \propto \frac{RGB}{255}^\gamma
+\text{Amount of light} \propto \left ( \frac{RGB}{255} \right )^\gamma
 $$
 
 and by convention, $\gamma = 2.2$. We mostly want to work in terms of light rather than RGB values, so we apply this correction to everything from here on.
@@ -56,9 +56,71 @@ So I made the bold (indeed, false) assumptions that all of our cameras and monit
 
 Next, we coloured a test pixel fully red, green and blue, and <span class="footnote" data-html="<p>I say &quot;measured the colours&quot;. Katie took a photo of it on her phone and we looked at the RGB value in Photoshop.</p>">measured the colours</span> (accounting for gamma, of course). We assumed that the black pen was totally black. Again, this is demonstrably false, but didn't seem to affect the process apart from making the maths simpler.
 
-In order to create test images without actually doing any colouring in, I wrote some code to blow up an image, and replace each pixel with a tiny picture of a Megapixel pixel — so instead of one white pixel, it would display many red, green and blue pixels. This worked pleasingly well, so I replaced the shades of red, green and blue with those from the photograph of the test pixel, and the image immediately turned purple. This was the colour distortion we needed to correct.
+In order to create test images without actually doing any colouring in, I wrote some code to blow up an image, and replace each pixel with a tiny picture of a Megapixel pixel — so instead of one white pixel, it would display many red, green and blue pixels. This worked pleasingly well, so I replaced the shades of red, green and blue with those from the photograph of the test pixel, and the image immediately turned purple. This was the colour distortion we needed to correct: we have to change the RGB values so that it looks right after the enpurpling effect of the pens' somewhat off-kilter colour-space.
+
+<div class="banner-section">
+	<img src="/img/rubiks-megapixel.png" width="402" height="250" style="width: 100%; image-rendering: pixelated">
+	<p class="caption">
+		<b>Top left</b>: the original photo, by <a href="https://www.flickr.com/photos/aotaro/26819410322">aotaro</a>.
+		<b>Top right</b>: the same image, made from individual dots of pure red, green and blue (as shown in the top three colour blocks).
+		<b>Bottom right</b>: as top left, with the dots in Edding red, green and blue (as shown in the bottom three colour blocks). You can see the image has a purple tinge as the green pen is dark.
+		<b>Bottom left</b>: the image after colour correction: the dots are still in Edding red, green and blue, but now the overall view looks normal. Only the numbers of dots in each pixel has changed.
+	</p>
+	<p>
+		The actual Megapixel has 100 dots per colour per pixel rather than the ten shown here.
+	</p>
+</div>
 
 
+The challenge is to find a number of red, green and blue dots which will result in the same amount of "actual" red, green and blue as the original image.
 
+The most elegant way to visualise the change is as a change of coorinate system. Mathematically this is called a "change of basis" and can be described by a matrix. Mouse over the graph below to see it in action (in a 2D version; the maths is exactly the same in any number of dimensions, if a bit pointless in 1D).
 
-My job therefore, was to build [a tool to convert sRGB image into Edding-pen-RGB](http://www.manchestermegapixel.com/minimegapixel/) (also available from Github either [hosted](http://github.andrewt.net/minimegapixel/) or [as a repo](https://github.com/andrew-t/minimegapixel)).
+<style>
+	.svg { position: relative; }
+	.svg > svg { width: 100%; height: 100%; }
+</style>
+<div class="text-width"><div class="hero phidias svg" width="680" height="500">{% include /megapixel-graph.svg %}</div></div>
+
+The matrix version is arguably more mathematically elegant, but far less intuitive. Here it is, but feel free to skip it. Colours are row vectors:
+
+$$
+\left [ \begin{matrix} R && G && B \end{matrix} \right ]
+$$
+
+Define $P$ as the colours of the pens (adjusted for gamma). The top row is the $RGB$ colour of the red pen, the second row the green pen, and the bottom row the blue:
+
+$$
+P =
+\left [
+\begin{matrix}
+0.91 && 0.03 && 0.08 \\
+0.00 && 0.38 && 0.08 \\
+0.00 && 0.14 && 0.82
+\end{matrix}
+\right ]
+$$
+
+Multiplying a colour vector by $P$ gives the colour that much red, green and blue ink would produce. That's the opposite of what we need, so this is the matrix we want:
+
+$$
+M = P^{-1} =
+\left [
+\begin{matrix}
+1.1 && -0.04 && -0.11 \\
+0 && 2.75 && -0.28 \\
+0 && -0.49 && 1.27
+\end{matrix}
+\right ]
+$$
+
+Now, multiplying a colour from the original image by $M$ gives the amount of pen we need.
+
+Some of the numbers in $M$ are negative. This can cause some colours to contain negative amounts of ink. These colours obviously cannot be produced. These are the colours below the red arrow in the graph, or left of the blue arrow. Other colours require more ink than will fit in a pixel; these can be made if the rest of the image is darkened.
+
+But you don't need to understand this yourself, since I built [a tool to convert sRGB image into Edding-pen-RGB](http://www.manchestermegapixel.com/minimegapixel/) (also available from Github either [hosted](http://github.andrewt.net/minimegapixel/) or [as a repo](https://github.com/andrew-t/minimegapixel)).
+
+Here is the final result:
+
+<center><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Here it is! A photo of the finished image, and the original. We&#39;ll have better-lit versions shortly. <a href="https://t.co/G5lhDqHtqO">pic.twitter.com/G5lhDqHtqO</a></p>&mdash; Manchester MegaPixel (@mcrmegapixel) <a href="https://twitter.com/mcrmegapixel/status/792858017528152064">October 30, 2016</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></center>
