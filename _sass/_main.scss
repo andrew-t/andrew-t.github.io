@@ -98,6 +98,13 @@ body > footer {
 		font-size: 1.5em;
 		margin-bottom: 0.5em;
 	}
+	> h3 {
+		@include text-box;
+		@include normal-text;
+		color: $accent-1-light;
+		font-size: 1em;
+		margin-bottom: 0.5em;
+	}
 	> p {
 		@include text-box;
 	}
