@@ -109,6 +109,18 @@ body > footer {
 		@include indented-text-box;
 		background: $accent-2-light;
 		color: $text-on-accent-2-light;
+		&.scam-them {
+			background: $accent-1-light;
+			color: $text-on-accent-1-light;
+			position: relative;
+			left: -2em;
+		}
+		&.scam-me {
+			background: $main-accent;
+			color: $text-on-main-accent;
+			position: relative;
+			left: 2em;
+		}
 		text-align: justify;
 		> p:first-child {
 			margin-top: 0;
