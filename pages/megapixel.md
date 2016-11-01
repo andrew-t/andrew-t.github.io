@@ -8,6 +8,12 @@ addTitle: true
 
 As part of the [Manchester Science Festival](http://www.manchestersciencefestival.com/) 2016, [Katie Steckles](http://www.katiesteckles.co.uk) decided to build a monitor for the [domino computer](/maths/domputer). Or rather, to demonstrate how a computer monitor builds up an image from red, green and blue pixels by making a giant one from pens. This was [the Megapixel project](http://www.manchestermegapixel.com/).
 
+The final image comprised around eight thousand pixels, each much like these ones that Angie coloured:
+
+<center>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Dropped into <a href="https://twitter.com/msimanchester">@msimanchester</a> for some therapeutic lunchtime colouring in with <a href="https://twitter.com/mcrmegapixel">@mcrmegapixel</a> <a href="https://twitter.com/hashtag/msf16?src=hash">#msf16</a> <a href="https://t.co/QUtE6eSkWa">pic.twitter.com/QUtE6eSkWa</a></p>&mdash; Angie Chan (@angieokchan) <a href="https://twitter.com/angieokchan/status/791259182599139328">October 26, 2016</a></blockquote>
+</center>
+
 <p><iframe class="hero" width="560" height="315" src="https://www.youtube.com/embed/AvO4s3bW-qI" frameborder="0" allowfullscreen></iframe></p>
 
 <div class="float-right">
@@ -48,7 +54,7 @@ All displays use red, green and blue sub-pixels to create colour images, but not
 It is a myth that the eye has red, green and blue light receptor cells. It does have three types of colour-receptive "cone" cells, but all of them respond at least a little to any colour of visible light, and the sensitivity peaks are really at violet, green and yellow. When building a display, you can choose any three primary colours you want, and the range of colours it will be able to display (its 'gamut') will depend on what you choose. It is not possible for the gamut to include all the colours, but choosing good shades of red, green and blue lets you get most of them.
 </p></div>
 
-Worse, we were starting out quite a long way from the idea configuration. Our shades or red, green and blue were decided by the colours of Edding <span class="footnote" data-html="<p>For young people, an OHP (or over-head projector) is Powerpoint for shadow puppets.</p>">OHP</span> pens, which were apparently not designed with this use case in mind.
+Worse, we were starting out quite a long way from the ideal configuration. Our shades or red, green and blue were decided by the colours of Edding <span class="footnote" data-html="<p>For young people, an OHP (or over-head projector) is Powerpoint for shadow puppets.</p>">OHP</span> pens, which were apparently not designed with this use case in mind.
 
 On the other hand, it wasn't necessary to get it perfect. Most people have never bothered to calibrate their computer display because it looks fine with the defaults. There is quite a range of broadly-similar calibrations out there, roughly centred on the actual correct one, and I figured if we could get the Megapixel into that range, it would be fine.
 
@@ -122,5 +128,9 @@ But you don't need to understand this yourself, since I built [a tool to convert
 
 Here is the final result:
 
-<center><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Here it is! A photo of the finished image, and the original. We&#39;ll have better-lit versions shortly. <a href="https://t.co/G5lhDqHtqO">pic.twitter.com/G5lhDqHtqO</a></p>&mdash; Manchester MegaPixel (@mcrmegapixel) <a href="https://twitter.com/mcrmegapixel/status/792858017528152064">October 30, 2016</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+<center>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Here&#39;s <a href="https://twitter.com/standupmaths">@standupmaths</a> and volunteer <a href="https://twitter.com/SparroWill">@SparroWill</a> putting up some more pixels in the window... you missed a bit! <a href="https://twitter.com/hashtag/msf16?src=hash">#msf16</a> <a href="https://t.co/JLqkUOF52A">pic.twitter.com/JLqkUOF52A</a></p>&mdash; Manchester MegaPixel (@mcrmegapixel) <a href="https://twitter.com/mcrmegapixel/status/792680804702969856">October 30, 2016</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Here it is! A photo of the finished image, and the original. We&#39;ll have better-lit versions shortly. <a href="https://t.co/G5lhDqHtqO">pic.twitter.com/G5lhDqHtqO</a></p>&mdash; Manchester MegaPixel (@mcrmegapixel) <a href="https://twitter.com/mcrmegapixel/status/792858017528152064">October 30, 2016</a></blockquote>
+</center>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
