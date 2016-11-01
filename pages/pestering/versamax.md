@@ -28,7 +28,7 @@ Janet J.
 
 Reply me asap with your website or product lists.</blockquote>
 
-<p>Well, I don't know who Janet Jeffrey is, but then, I don't know who Heather Daisy is either, so what the hell. Only problem is, I don't have a product, or product list. But I do have a website. And on that website is— no, wait, I <i>do</i> have a product list...<br></p>
+Clearly it's some kind of scam, but it's not yet clear which one. Well, only one way to find out.
 
 <blockquote class="scam-me">Hi Janet,
 <br><br>
@@ -57,7 +57,7 @@ Nigeria 23401.
 <br><br>
 I will  be waiting for your swift response.</blockquote>
 
-Just to be clear: item sixteen is a shoe. I made no claims as to which foot it was for, but by buying five Janet had got herself a pretty good chance of getting a pair. Item fourteen is a pack of batteries, in which batteries are not included.
+Just to be clear on how silly my produt list is: item sixteen is a shoe. I made no claims as to which foot it was for, but by buying five Janet had got herself a pretty good chance of getting a pair. Item fourteen is a pack of batteries, in which batteries are not included.
 
 <blockquote class="scam-me">
 I've had a look at the shipping prices, and the price is as follows:
@@ -127,7 +127,7 @@ VersaMax Customer Service team
 </blockquote>
 
 <blockquote class="scam-them">
-I will like to let me know what else i am suppose to fill,also i will like to let you know that i want to paste 2 credit card details how will i do it pls advise.
+I will like to let me know what else i am suppose to fill
 </blockquote>
 
 <blockquote class="scam-me">
@@ -150,7 +150,7 @@ Your odrer with VersaMax stores was successful, and will be dispatched when you 
 VersaMax Customer Disservice Team
 </blockquote>
 
-I included another webform. This one asked for the new customer's height, star sign, date of birth, date of death, nature of death, and favourite member of Take That.
+I included another webform. This one asked for the new customer's height, star sign, favourite colour, date of birth, date of death, nature of death, and favourite member of Take That.
 
 Janet, or Jayeola as he apparently likes to be known, likes the colour BLUE.
 
@@ -191,7 +191,7 @@ I am still waiting for your swift response.concerning my order i want you to get
 Regards<br>
 Jeffrey.</blockquote>
 
-After a short chat with Chloe O'Brian, VersaMax Customer Service Droid (me), she forwarded Janet's message to Bill, head of STAR PRIZEs.
+After a short chat with Chloe O'Brian, VersaMax Customer Service Droid (me), she forwarded Janet's message to Bill, head of STAR PRIZEs (also me).
 
 <blockquote class="scam-me">
 Hi Janet,
@@ -260,8 +260,7 @@ George Mason<br>VersaMax News Editor
 </blockquote>
 
 <blockquote class="scam-them">
-i am ok with it,just get back to me asap with my
-shipping details.
+i am ok with it,just get back to me asap with my shipping details.
 </blockquote>
 
 <blockquote class="scam-me">
@@ -271,10 +270,7 @@ Shipping? We thought it would be easier just to give you the four dollar STAR PR
 <blockquote class="scam-me">
 Hi Janet, 
 <br><br>
-Just thought I'd let you know that everything has been sorted out and
-that your STAR PRIZE of FOUR DOLLARS will be sent as soon as you
-nominate an account. Please get back to me and let me know where you'd
-like it sending. 
+Just thought I'd let you know that everything has been sorted out and that your STAR PRIZE of FOUR DOLLARS will be sent as soon as you nominate an account. Please get back to me and let me know where you'd like it sending. 
 <br><br>
 Thanks, 
 <br><br>
